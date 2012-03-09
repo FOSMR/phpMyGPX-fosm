@@ -1,0 +1,43 @@
+/* $Id$ */
+/**
+@mainpage 
+
+
+Note: This documentation is preliminary and incomplete!
+
+\section about About the project
+
+phpMyGPX is a web application for managing GPX files and photos.
+
+\image html phpMyGPX_banner_760x120.jpg
+\image latex phpMyGPX_banner_760x120.jpg "Logo" width=12cm
+
+Homepage: http://phpmygpx.tuxfamily.org/ \n
+Bugtracker: http://phpmygpx.tuxfamily.org/bugs/
+
+
+\section readmesec Readme file
+
+Some basic information on requirements, installing, upgrading and the license 
+can be found in the Readme file:
+\ref readme
+
+
+\section config Configuration options
+
+phpMyGPX can be customized to suit your needs:
+\ref config.defaults.php "Description of all config options"
+
+
+\section contact Contact
+
+Please feel free to contact the author:
+
+osm&lt;at&gt;erlkoenigkabale(dot)eu
+
+
+\page readme Content of the Readme file
+
+\verbinclude README.txt
+
+*/

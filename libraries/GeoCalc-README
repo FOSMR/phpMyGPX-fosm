@@ -1,0 +1,148 @@
+GEOCALC-PHP
+Geographic Distance and Azimuth Calculations in PHP
+Version 1.2
+
+
+ABOUT THIS LIBRARY
+This code was "ported" to PHP from Visual C++ by Steven Brendtro 
+of www.imaginerc.com. The original article and source code, written 
+by andyf4i can be found on CodeGuru.com at the following address:
+
+http://www.codeguru.com/Cpp/Cpp/algorithms/article.php/c5115/
+
+
+VERSION HISTORY
+Version 1.0 - Initial release
+Version 1.1 - Bug in getKMPerLonAtLat() fixed.
+              Thanks to Eric Iverson for finding it.
+Version 1.2 - Bug in getLonPerKMAtLat() fixed.
+
+
+FILES INCLUDED IN THIS RELEASE
+GeoCalc.class.php - The actual PHP class
+README - This file
+
+
+ADDITIONAL PACKAGES
+Also available on SourceForge.net under the GEOCALC-PHP project,
+you can find a ZIP Code database (for FREE!) that you can use
+for distance calculations between ZIP Codes.
+
+For increased speed when performing distance calculations using
+MySQL, be sure to check out GEOCALC-UDF at SourceForge.net.
+This UDF (User Defined Function) is designed for MySQL and has
+been known to reduce query time up to 1000%!
+
+
+METHODS
+
+# Basic Methods:
+GeoCalc();	# Default Constructor
+
+GCDistance($lat1, $lon1, $lat2, $lon2);
+		# Using the Great Circle formula, calculate 
+		# the distance in kilometers between 
+		# Latitude/Longitude 1 and Latitude/Longitude 2
+
+GCAzimuth($lat1, $lon1, $lat2, $lon2);
+		# Using the Great Circle formula, calculate the 
+		# azimuth between Latitude/Longitude 1 and 
+		# Latitude/Longitude 2
+		
+ApproxDistance($lat1, $lon1, $lat2, $lon2);
+		# Using the Ellipsoidal Approximation formula, 
+		# calculate the distance in kilometers between 
+		# Latitude/Longitude 1 and Latitude/Longitude 2
+		
+EllipsoidDistance($lat1, $lon1, $lat2, $lon2);
+		# Using the Ellipsoidal Distance formula, calculate 
+		# the distance in kilometers between Latitude/Longitude 1 
+		# and Latitude/Longitude 2. This formula is the most 
+		# accurate of the formulas.
+
+# Helper Methods
+
+getKmPerLonAtLat($dLatitude);
+		# Get the number of Kilometers per degree longitude 
+		# at the given latitude.
+		
+getLonPerKmAtLat($dLatitude);
+		# Get the number of degrees longitude per kilometer at the 
+		# given latitude.
+		
+getKmPerLat();
+		# Get the number of kilometers per degree latitude (average 
+		# of 111.0 kilometers per degree)
+		
+getLatPerKm(); 	
+		# Get the number of degrees latitude per kilometer (average 
+		# of 1/111 degrees per kilometer)
+
+
+# Helper Function (not a method in the class, but a function)
+
+ConvKilometersToMiles($dValue);
+		# Convert a distance from kilometers to miles 
+		# (km / 1.609344 = miles).
+
+
+EXAMPLES
+
+Here are some example uses for this class:
+
+      include_once("GeoCalc.class.php");
+
+      $oGC = new GeoCalc();
+
+      // Great Circle Distance
+      $dDist = $oGC->GCDistance(38.9333,-94.3253,38.9314,-94.4876);
+
+      // Great Circle Azimuth
+      $dDist =  $oGC->GCAzimuth(38.9333,-94.3253,38.9314,-94.4876);
+
+      // Approximate Ellipsoid Distance
+      $dDist = $oGC->ApproxDistance(38.9333,-94.3253,38.9314,-94.4876);
+
+      // Accurate Ellipsoid Distance
+      $dDist = $oGC->EllipsoidDistance(38.9333,-94.3253,38.9314,-94.4876);
+
+      // Convert distance from kilometers to miles
+      $dDistMiles = ConvKilometersToMiles($dDist);
+
+      // Advanced Calculation:
+        // The following will search for ZIP codes
+        // within a radius (roughly calculated)
+
+        // Define the center of the search bounds...
+        $dLongitude = -94.44590241;
+        $dLatitude = 38.7996;
+
+        // Define the maximum search distance
+        $dRadius = 100.00;  // in kilometers
+
+        // Calculate the boundary distance in degrees longitude / latitude
+        $dAddLat = $oGC->getLatPerKm() * $dRadius;
+        $dAddLon = $oGC->getLonPerKmAtLat($dLatitude) * $dRadius;
+
+        // Calculate the boundaries
+        $dNorthBounds = $dLatitude + $dAddLat;
+        $dSouthBounds = $dLatitude - $dAddLat;
+        $dWestBounds = $dLongitude - $dAddLon;
+        $dEastBounds = $dLongitude + $dAddLon;
+
+        print "Center Longitude: $dLongitude\n";
+        print "Center Latitude: $dLatitude\n";
+        print "Radius: $dRadius kilometers\n";
+
+        print "North Bounds: $dNorthBounds\n";
+        print "South Bounds: $dSouthBounds\n";
+        print "East Bounds: $dEastBounds\n";
+        print "West Bounds: $dWestBounds\n";
+
+        // Sample SQL query stament based on above boundaries:
+        $strQuery = "SELECT * FROM PostalCodes " .
+                    "WHERE Latitude > $dSouthBounds " .
+                    "AND Latitude < $dNorthBounds " .
+                    "AND Longitude > $dWestBounds " .
+                    "AND Longitude < $dEastBounds";
+

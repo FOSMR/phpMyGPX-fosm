@@ -1,0 +1,140 @@
+Changelog
+---------
+
+- feature: interactive creating, editing and deleting of waypoints using map
+- bugfix: #58 - missing i18n strings for database errors
+- bugfix: trim file names of photos to be shown within tables, add tooltip
+- feature: add config var 'gpx_features' to disable all GPX related features
+- bugfix: show stats depending on config vars
+- feature: add links to photo images in tables
+- bugfix: #66 - photo bubbles not shown correctly
+- changed URL for Lonvia's hiking layer tiles
+- bugfix: #62 - map.php does not work with MS Internet Explorer v8 and v9
+- feature: #61 - add image/movement direction (thanks to Andrés Gómez Casanova)
+- feature: add config var 'photo_full_size' for viewing full res photos
+- feature: show full res photos and support for existing low res photos
+- feature: #57 - add config var 'photo_copy_files' to allow referenced files
+- feature: #57 - add config vars for photo storage directories
+- feature: #60 - add Spanish translation (thanks to Andrés Gómez Casanova)
+- bugfix: #56 - wrong position of photos with western longitude
+- feature: add new map style and aerial tiles from MapQuest
+- feature: #51 - use geodesic measurement for scale line
+- upgrade OpenLayers library to version 2.10
+- bugfix: bottom pagination links ignore sorting of tables
+- feature: add black/white Mapnik map style, fixed zoom levels
+- feature: #53 - UI to select >1 GPX files to be shown on map
+- feature: #49 - reduce size (number of trkpts) of big GPX overlay shown on map
+- bugfix: #46 - fix file and directory permissions
+- feature: #12 (partly) - show more than one GPX on the map
+- feature: #32 - add config var 'photo_min_zoom' sets when photo icons appear
+- changed URL for OpenCycleMap tiles
+- bugfix: order trackpoints/waypoints by timestamps on GPX export 
+- feature: #50 - expand reading out the speed information (for GPX 1.1 schema)
+- feature: #48 - use OpenLayers buffer property and make it customizable
+- feature: add config var 'enable_gpx_download' to allow disabling links
+- bugfix: map: load thumbnails instead of resampling original big images
+- feature: add config var 'import_time_limit' for PHP's max execution time
+
+
+2010/07/27  phpMyGPX 0.6.1 released
+- bugfix: initialisation of JS generated links on map page
+- bugfix: #45 - database creation error caused by missing comma
+- bugfix: remove PHP short_open_tags for better compatibility
+- feature: add clock offset for auto-geo-tagging to import form
+- bugfix: show PHP error message that might occur during imports
+- bugfix: gpx export and result strings on filtering for trkpt/wpt/photos
+- bugfix: #44 - batch import fails if upload dir contains only one file
+- feature: #39 - automatic geotag photos using trackpoints from GPX
+- feature: #35 - display all timestamps converted to local timezone
+- feature: #41 - add general timezone support to database and config file
+- bugfix: #42 - missing database column 'length' on fresh installation
+
+
+2010/05/28  phpMyGPX 0.6 released
+- feature: add date period (from/to) option to search forms for gpx/trkpt/wpt
+- feature: #21 - add more options (date/lat/lon) to search for gpx files
+- feature: add tooltips on links to gpx details
+- feature: #38 - add dropdown to select gpx file on photo imports
+- feature: add db column for length of tracks (allows sorting and fast stats)
+- feature: #20 - changed gpx table layout depending on user/admin mode
+- feature: added new map style and hillshading from hikebikemap.de
+- bugfix: #36 - set maximum number of photo icons in config file
+- bugfix: #20 - don't show edit/delete buttons if not logged in
+- feature: #5 - sort gpx/wpt/photo/bookmark tables using table header links
+- bugfix: #34 - elevation chart isn't shown due to wrong timezone
+- feature: added links to prev/next photo to details page
+- upgraded PHPlot library to version 5.1.1
+- feature: #31 - added speed charts
+- changed server URL for update checks
+- bugfix: redirect to /installation if config file not present
+- bugfix: improved error handling in photo imports + other minor issues
+
+
+2010/04/10  phpMyGPX 0.5.1 released
+- bugfix: map position and stats for gpx files containing only waypoints
+- bugfix: #18 - avoid confusion when importing gpx files (disable button)
+- bugfix: #16 - allow duplicate timestamps for trkpts and wpts on gpx import
+- feature: #22 - size of the map is customizable in config file
+- bugfix: conditions for showing the menu on public hosts and embedded mode
+- bugfix: #28 - add checks for PHP extensions: exif and mbstring
+- feature: #23 - Number of rows in tables is customizable (saved in cookie)
+- feature: #24 - GPX Overview should display a direct link to the map
+- bugfix: #15 - prevent PHP notices: undefined constant notices
+- bugfix: #17 - make upload error descriptive and check for upload_max_filesize
+
+
+2010/03/15  phpMyGPX 0.5 released
+- added simple proxy for caching mapnik/omarender tiles (thanks to Lizard)
+- added support for DGPS/PPS fix type in GPX files
+- added batch import for GPX files (bug #11)
+- added possibility to edit description for GPX files
+- added fixed width for menu and page layout (bug #8)
+- added photo management and photo layer from photo.osm.lab.rfc822.org
+- added overlay showing hiking pathes from osm.lonvia.de
+- added checks for folder permissions during installation
+- added change file permissions for photos and GPX on import (bug #14)
+- added installation/upgrade wizard, handling the config file (bug #10)
+- added switch to change altitude chart x-axis: time or distance
+- added embedded mode for easy integration into web sites
+
+
+2009/09/30  phpMyGPX 0.4 released
+- added Dutch language (thanks to Leon Vrancken)
+- added French language (thanks to Arno Renevier)
+- added table showing waypoints and provide a search within (bug #6)
+- added check for proper gpx format and missing timestamps (bug #4) 
+- fixed bug that prevents proper database installation (bug #7) 
+- added new altitude chart option: alt against distance (bug #2)
+- removed some useless HTML code from head.html.php
+- added missing folder /openlayers/theme
+- many bug fixes
+
+
+2009/08/04  phpMyGPX 0.3.1 released
+- upgrade OpenLayers library to version 2.8
+- added option to use local OpenLayers + OSM Javascript libraries
+- added missing config var for default map zoom on home location 
+- fixed some bugs concerning bookmarks
+
+
+2009/06/12  phpMyGPX 0.3 released
+- added installation options to upgrade database layout
+- added more database stats: total distance
+- added bookmark feature
+- added handling of waypoints: extract from gpx and shown on map
+- added nicer elevation chart and cleaned up the 'GPX details' page
+- added begin/end time of tracks to GPX table (feature requested)
+
+
+2009/04/23  phpMyGPX 0.2 released
+- added automatic check for updates
+- added protection for database on public hosts with admin login
+- added dynamic links on map page to OSB, keepright! and local JOSM editor
+- added more stats for GPX files: track distance, time, speed (experimental)
+- bugfix: removed marker from map
+- added links on GPX and lat/lon to trackpoint tables 
+- added map link to menu bar for simple map browsing
+
+
+2009/03/03  phpMyGPX 0.1 released
+- initial public release

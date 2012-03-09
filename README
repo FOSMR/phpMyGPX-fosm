@@ -1,0 +1,22 @@
+This project  is a fork of  Sebastian Klemm (osm@erlkoenigkabale.eu)'s
+phpMyGPX  utility for  storing and  viewing GPX  traces  and geotagged
+photographs on a web page.
+
+Sebastian's   original   code   version   was  0.6.1   (available   at
+http://phpmygpx.tuxfamily.org/), but  there is also  a patched version
+available  with  added  functionality,  such as  MapQuest  tile  layer
+overlays etc.
+
+This fork  is based upon that  patched version (also  known as version
+0.6.1.)
+
+As an aide to tracking differences,  the initial check in of this code
+to github (should be!) identical to Sebastian's code.
+
+Known Issues:
+
+* "Phones Home" to http://phpmygpx.tuxfamily.org/check_upd.php?v=0.6.1
+   whenever  "about" memu item  accessed, and  expects response  to be
+   exactly the  unadorned string  "0.6.1", otherwise announces  that a
+   software  update is  available.  No  attempt is  made  to check  if
+   available version number is newer or older than the local copy.

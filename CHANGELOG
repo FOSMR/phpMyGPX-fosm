@@ -54,6 +54,10 @@ TODO:
   * _UNFORKED_UPDATE_AVAIL
   * _PROCEED_WITH_UPDATE
   * _INST_LOCALE		(Dutch/French/Spanish only)
+- Please note  there is a problem  being logged by  apache relating to
+  the handling  of 'pwd'  and 'pwd_hash' in  the $_POST  and $_SESSION
+  arrays. As I  do not understand this code I don't  want to change it
+  yet. Suggestions welcome!
 
 ------------------------------------------------------------------------
 Following is Changelog from phpMyGPX-0.6.1 (patched version)

@@ -1,7 +1,30 @@
 Changelog
 ---------
 
-2011/03/11  phpMyGPX 0.6.1-fosm:
+TODO:
+- Need to translate Dutch/French/German/Spanish language strings for:
+  * _BASED_ON
+  * _INST_CREATE_USER
+  * _INST_USER_ACCESS
+  * _MENU_TRC_EDIT
+  * _MENU_UPDATE
+  * _UNFORKED_APP_CURRENCY
+  * _NO_UNFORKED_UPDATE_AVAIL
+  * _UNFORKED_UPDATE_AVAIL
+  * _PROCEED_WITH_UPDATE
+  * _INST_LOCALE		(Dutch/French/Spanish only)
+- Please note  there is a problem  being logged by  Apache relating to
+  the handling  of 'pwd'  and 'pwd_hash' in  the $_POST  and $_SESSION
+  arrays. As I  do not understand this code I don't  want to change it
+  yet.   Removing  code   affects  only  administrative  login/out  in
+  so-called embedded mode (makes it impossible to log out!)
+  * Suggestions still welcome!
+
+
+2011/03/11  phpMyGPX 0.6.1b:
+- added AGRI layer for Australian Geographic Reference Image.
+
+2011/03/11  phpMyGPX 0.6.1a:
 - renamed all screen titles to reflect fork status of this version.
 - changed "powered by" screen footers to direct to github.com.
 - renamed "phone home" version check response to indicate pre-fork
@@ -41,23 +64,6 @@ Changelog
 - partial fix for locale bug (we are all German!)
   * Locale   now  drawn   from  language   file  (may   need  separate
     configuration input item similar to language selection?)
-
-TODO:
-- Need to translate Dutch/French/German/Spanish language strings for:
-  * _BASED_ON
-  * _INST_CREATE_USER
-  * _INST_USER_ACCESS
-  * _MENU_TRC_EDIT
-  * _MENU_UPDATE
-  * _UNFORKED_APP_CURRENCY
-  * _NO_UNFORKED_UPDATE_AVAIL
-  * _UNFORKED_UPDATE_AVAIL
-  * _PROCEED_WITH_UPDATE
-  * _INST_LOCALE		(Dutch/French/Spanish only)
-- Please note  there is a problem  being logged by  apache relating to
-  the handling  of 'pwd'  and 'pwd_hash' in  the $_POST  and $_SESSION
-  arrays. As I  do not understand this code I don't  want to change it
-  yet. Suggestions welcome!
 
 ------------------------------------------------------------------------
 Following is Changelog from phpMyGPX-0.6.1 (patched version)

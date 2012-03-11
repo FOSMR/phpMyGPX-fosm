@@ -10,7 +10,7 @@
 defined( '_VALID_OSM' ) or die( 'Restricted access' );
 
 define( '_UNFORKED_APP_VERSION', '0.6.1' );
-define( '_APP_VERSION', '0.6.1a' );
+define( '_APP_VERSION', '0.6.1b' );
 define( '_APP_RELEASE_DATE', '11th February, 2012' );
 //Following symbols are not currently used anywhere!
 //define( '_APP_SVN_REVISION', '%REVISION%' );

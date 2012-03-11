@@ -138,6 +138,7 @@ class SlippyMap {
 			echo '<script src="'._PATH.'openlayers/hikebikelayer.js"></script>'."\n";
 		}
 		echo '<script src="'._PATH.'openlayers/FOSM.js"></script>'."\n";
+		echo '<script src="'._PATH.'openlayers/AGRI.js"></script>'."\n";
 		echo '<script src="'._PATH.'openlayers/mapquest_layers.js"></script>'."\n";
 		echo '<script src="'._PATH.'openlayers/map_events.js"></script>'."\n";
 		echo '<script src="'._PATH.'openlayers/map.js"></script>'."\n";

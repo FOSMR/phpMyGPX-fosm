@@ -74,6 +74,9 @@ function createMap(lat, lon, zoom,
 	layerMapQuestAerial = new OpenLayers.Layer.OSM.MapQuestAerial("MapQuest Aerial", {buffer:tilebuffer});
 	map.addLayer(layerMapQuestAerial);
 	
+	layerAGRI = new OpenLayers.Layer.OSM.AGRI("AGRI", {buffer:tilebuffer});
+	map.addLayer(layerAGRI);
+	
 	if (hiking) {
 		layerHiking = new OpenLayers.Layer.OSM.Hiking("Hiking Paths", {buffer:tilebuffer, visibility:false});
 		map.addLayer(layerHiking);

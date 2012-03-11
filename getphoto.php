@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2009-2011 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -10,7 +10,7 @@ define( '_VALID_OSM', TRUE );
 define( '_PATH', './' );
 $DEBUG = FALSE;
 if($DEBUG) error_reporting(E_ALL);
-include("./config.inc.php");
+include("./config.inc.php");
 include("./libraries/functions.inc.php");
 #include("./libraries/classes.php");
 include("./libraries/image.classes.php");

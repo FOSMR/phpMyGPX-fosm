@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2009-2011 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */

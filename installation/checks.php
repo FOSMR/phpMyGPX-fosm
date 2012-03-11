@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2008 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -21,6 +21,8 @@ if(isset($_GET['lang']))
 
 setlocale (LC_TIME, $cfg['config_locale']);
 include("../languages/".get_lang($cfg['config_language']).".php");
+$cfg['config_locale'] = _INST_LOCALE;
+setlocale (LC_TIME, $cfg['config_locale']);
 include("../head.html.php");
 
 $upgrade = getUrlParam('HTTP_GET', 'INT', 'upgrade');
@@ -65,6 +67,9 @@ HTML::message(_INST_PROG_CHECKS);
     $dir = _PATH .'tiles/hikebike/';
     printDirPerms($dir);
     
+    $dir = _PATH .'tiles/FOSM/';
+    printDirPerms($dir);
+    
     // check web server capabilities and PHP extensions
     printCapability('mysql', 'MySQL extension', 0);
     #printCapability('mysqli', 'MySQLi extension', 0);
@@ -97,6 +102,7 @@ include("../foot.html.php");
 
 
 function checkDirPerms($file) {
+    $DEBUG = FALSE;
     if($DEBUG) {
 	    echo "$file : ". decoct(fileperms($file) & 511) .",";
 	    echo " u=". decoct((fileperms($file) & 0700)/0100) .",";

@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2008 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -54,7 +54,7 @@ if(!$link) {
     db_close(TRUE, $link);
     
     // rename installation folder for security reasons
-    $obscured_dir = substr(md5(date('U').$_SERVER["REMOTE_ADDR"]), 5, 12);
+    $obscured_dir = substr(md5(time().$_SERVER["REMOTE_ADDR"]), 5, 12);
     if(rename(_PATH .'installation', _PATH .$obscured_dir)) {
     	HTML::message(_INST_PROG_RENAMED);
     }else {

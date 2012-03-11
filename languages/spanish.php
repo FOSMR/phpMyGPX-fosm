@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id: english.php 319 2010-07-23 21:38:57Z sebastian $
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2011-2012 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -19,8 +19,8 @@ DEFINE('_404', 'Lo lamentamos, pero la página que usted solicitó no pudo ser e
 DEFINE('_404_RTS', 'Volver al sitio');
 
 // common
-DEFINE('_APP_NAME','phpMyGPX');
-DEFINE('_HTML_TITLE','phpMyGPX ::: gestión de puntos de trazado');
+DEFINE('_APP_NAME','phpMyGPX-fosm');
+DEFINE('_HTML_TITLE','phpMyGPX-fosm ::: gestión de puntos de trazado');
 
 DEFINE('_DATE_FORMAT_LC',"%d/%m/%Y"); //Uses PHP's strftime Command Format
 DEFINE('_DATE_FORMAT_LC2',"%A, %d %B %Y %H:%M");
@@ -152,7 +152,7 @@ DEFINE('_CMN_PDOP','PDOP');
 
 
 /** installation */
-DEFINE('_INST_OSM_SETUP','phpMyGPX-Instalación: ');
+DEFINE('_INST_OSM_SETUP','phpMyGPX-fosm-Instalación: ');
 DEFINE('_INST_WELCOME','Bienvenida');
 DEFINE('_INST_CHECKS','Verificación del ambiente');
 DEFINE('_INST_CONFIG','Configuración');
@@ -184,6 +184,7 @@ DEFINE('_INST_CFG_HOME_LOCATION_MAN','Por favor seleccione el lugar principal so
 
 DEFINE('_INST_LANGUAGE','Idioma');
 DEFINE('_INST_LANGUAGE_CHOOSE','Por favor seleccione su idioma preferido.');
+DEFINE('_INST_LOCALE','en_US');	     //Untranslated!!
 DEFINE('_INST_MODE','Modo de instalación');
 DEFINE('_INST_MODE_NEW','Instalación nueva');
 DEFINE('_INST_MODE_UPGR3','Actualización a la versión 0.3');
@@ -198,10 +199,12 @@ DEFINE('_INST_PROG_CONFIG_UPDATED','El archivo de configuración fue actualizado
 DEFINE('_INST_DB_CREATE_SETUP','Creacion y configuracion de la base de datos ');
 DEFINE('_INST_PROG_INST','Su base de datos MySQL y todas las tablas serán creadas...');
 DEFINE('_INST_DB_CONN_ERROR','La conexión a la base de datos a fallado. ');
+DEFINE('_INST_CREATE_USER','Operational database user created. '); //Untranslated!!
 DEFINE('_INST_UPGR3_ADD_BOOKM_TBL','Tabla para marcadores ha sido creada.');
 DEFINE('_INST_UPGR3_ADD_WAYPTS_TBL','Tabla para waypoints ha sido creada.');
 DEFINE('_INST_UPGR5_ADD_POIS_TBL','Tabla para POIs/fotos ha sido creada.');
 DEFINE('_INST_PROG_DB','La base de datos ha sido creada.');
+DEFINE('_INST_USER_ACCESS','Operational user access granted. '); //Untranslated!!
 DEFINE('_INST_PROG_RENAMED','El directorio de instalación fue renombrado por razones de seguridad.');
 DEFINE('_INST_PROG_RENAME_ERROR','Por razones de seguridad, por favor BORRE el directorio de instalación!');
 DEFINE('_INST_PROG_DONE','<b>FELICITACIONES!</b> Usted ha instalado satisfactoriamente la aplicación!');
@@ -223,6 +226,7 @@ DEFINE('_MENU_GPX_DOWNL','descargar');
 DEFINE('_MENU_GPX_EDIT','editar');
 DEFINE('_MENU_GPX_DELETE','borrar');
 DEFINE('_MENU_GPX_SEARCH','Buscar en GPX');
+DEFINE('_MENU_TRC_EDIT','Edit Trace Description'); //Untranslated!!
 DEFINE('_MENU_TRKPT','Trackpoints');
 DEFINE('_MENU_TRKPT_VIEW','Ver Trackpoints');
 DEFINE('_MENU_TRKPT_SEARCH','buscar Trackpoints');
@@ -245,6 +249,7 @@ DEFINE('_MENU_NEW','Nuevo');
 
 DEFINE('_MENU_HOME','Inicio');
 DEFINE('_MENU_ABOUT','Acerca de...');
+DEFINE('_MENU_UPDATE','Update...');	// Untranslated!!
 DEFINE('_MENU_BOOKMARK','Marcadores');
 DEFINE('_MENU_MAP','Mapa');
 DEFINE('_MENU_MISC','Miscelánea');
@@ -363,6 +368,12 @@ DEFINE('_ABOUT_LICENSE','Licencia');
 DEFINE('_UPDATE_CHECK_DISABLED','La verificación de actualizaciones ha sido desactivada.');
 DEFINE('_UPDATE_AVAIL','Una actualización de este software está disponible.');
 DEFINE('_NO_UPDATE_AVAIL','No hay actualizaciones disponibles.');
+DEFINE('_BASED_ON','Based upon:');	//Untranslated!!
+DEFINE('_UNFORKED_APP_NAME','phpMyGPX');
+DEFINE('_UNFORKED_APP_CURRENCY','<em>Base package currency:</em>'); // Untranslated!!
+DEFINE('_NO_UNFORKED_UPDATE_AVAIL','Base phpMyGPX unchanged.'); // Untranslated!!
+DEFINE('_UNFORKED_UPDATE_AVAIL','A new base phpMyGPX is available: '); // Untranslated!!
+DEFINE('_PROCEED_WITH_UPDATE','Proceed with update?'); // Untranslated!!
 DEFINE('_UPDATE_SERVER_ERROR404','El servidor de actualizaciones devolvió un error 494 (Documento no encontrado).');
 DEFINE('_UPDATE_SERVER_CONN_ERROR','La conexión al servidor de actualizaciones ha fallado.');
 

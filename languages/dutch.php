@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2009-2012 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -19,8 +19,8 @@ DEFINE('_404', 'Het spijt ons maar de door u opgevraagde pagina kan niet worden 
 DEFINE('_404_RTS', 'Terug naar de site');
 
 // common
-DEFINE('_APP_NAME','phpMyGPX');
-DEFINE('_HTML_TITLE','phpMyGPX ::: Trackpoint-beheer');
+DEFINE('_APP_NAME','phpMyGPX-fosm');
+DEFINE('_HTML_TITLE','phpMyGPX-fosm ::: Trackpoint-beheer');
 
 DEFINE('_DATE_FORMAT_LC',"%d.%m.%Y"); //Uses PHP's strftime Command Format
 DEFINE('_DATE_FORMAT_LC2',"%A, %d. %B %Y %H:%M");
@@ -152,7 +152,7 @@ DEFINE('_CMN_PDOP','PDOP');
 
 
 /** installation */
-DEFINE('_INST_OSM_SETUP','phpMyGPX-Setup: ');
+DEFINE('_INST_OSM_SETUP','phpMyGPX-fosm-Setup: ');
 DEFINE('_INST_WELCOME','Welkom');
 DEFINE('_INST_CHECKS','Omgevingscontrole');
 DEFINE('_INST_CONFIG','Configuratie');
@@ -184,6 +184,7 @@ DEFINE('_INST_CFG_HOME_LOCATION_MAN','Kies de standaard startcoordinaten van uw 
 
 DEFINE('_INST_LANGUAGE','Taal');
 DEFINE('_INST_LANGUAGE_CHOOSE','Kies uw voorkeurtaal aub.');
+DEFINE('_INST_LOCALE','en_US');	     //Untranslated!!
 DEFINE('_INST_MODE','Installatiemethode');
 DEFINE('_INST_MODE_NEW','Nieuwe installatie');
 DEFINE('_INST_MODE_UPGR3','Upgrade naar versie 0.3');
@@ -198,10 +199,12 @@ DEFINE('_INST_PROG_CONFIG_UPDATED','Het configuratiebestand werd aangepast en be
 DEFINE('_INST_DB_CREATE_SETUP','Database cre&euml;ren en instellen ');
 DEFINE('_INST_PROG_INST','Uw MySQL-database en alle tabellen worden nu gecre&euml;erd...');
 DEFINE('_INST_DB_CONN_ERROR','Verbinding maken met database-server is mislukt. ');
+DEFINE('_INST_CREATE_USER','Operational database user created. '); //Untranslated!!
 DEFINE('_INST_UPGR3_ADD_BOOKM_TBL','Bladwijzer-tabel werd gecre&euml;erd.');
 DEFINE('_INST_UPGR3_ADD_WAYPTS_TBL','Waypoints-tabel werd gecre&euml;erd.');
 DEFINE('_INST_UPGR5_ADD_POIS_TBL','Tabel voor POIs/foto\'s werd gecre&euml;erd.');
 DEFINE('_INST_PROG_DB','Database werd gecre&euml;erd.');
+DEFINE('_INST_USER_ACCESS','Operational user access granted. '); //Untranslated!!
 DEFINE('_INST_PROG_RENAMED','Uit veiligheidsoverwegingen werd de installatiemap hernoemd.');
 DEFINE('_INST_PROG_RENAME_ERROR','Verwijder de installatiemap omwille van veiligheidsredenen!');
 DEFINE('_INST_PROG_DONE','<b>PROFICIAT!</b> U heeft de toepassing succesvol ge&iuml;nstalleerd!');
@@ -223,6 +226,7 @@ DEFINE('_MENU_GPX_DOWNL','GPX downloaden');
 DEFINE('_MENU_GPX_EDIT','GPX bewerken');
 DEFINE('_MENU_GPX_DELETE','GPX verwijderen');
 DEFINE('_MENU_GPX_SEARCH','GPX zoeken');
+DEFINE('_MENU_TRC_EDIT','Edit Trace Description'); //Untranslated!!
 DEFINE('_MENU_TRKPT','Trackpoints');
 DEFINE('_MENU_TRKPT_VIEW','Trackpoints bekijken');
 DEFINE('_MENU_TRKPT_SEARCH','Trackpoints zoeken');
@@ -245,6 +249,7 @@ DEFINE('_MENU_NEW','nieuw');
 
 DEFINE('_MENU_HOME','Home');
 DEFINE('_MENU_ABOUT','Info...');
+DEFINE('_MENU_UPDATE','Update...');	// Untranslated!!
 DEFINE('_MENU_BOOKMARK','Bladwijzers');
 DEFINE('_MENU_MAP','Kaart');
 DEFINE('_MENU_MISC','Extra');
@@ -363,6 +368,12 @@ DEFINE('_ABOUT_LICENSE','Licentie');
 DEFINE('_UPDATE_CHECK_DISABLED','Controleren op updates is uitgeschakeld.');
 DEFINE('_UPDATE_AVAIL','Er is een update van deze software beschikbaar: ');
 DEFINE('_NO_UPDATE_AVAIL','Er is geen update beschikbaar.');
+DEFINE('_BASED_ON','Based upon:');	//Untranslated!!
+DEFINE('_UNFORKED_APP_NAME','phpMyGPX');
+DEFINE('_UNFORKED_APP_CURRENCY','<em>Base package currency:</em>'); // Untranslated!!
+DEFINE('_NO_UNFORKED_UPDATE_AVAIL','Base phpMyGPX unchanged.'); // Untranslated!!
+DEFINE('_UNFORKED_UPDATE_AVAIL','A new base phpMyGPX is available: '); // Untranslated!!
+DEFINE('_PROCEED_WITH_UPDATE','Proceed with update?'); // Untranslated!!
 DEFINE('_UPDATE_SERVER_ERROR404','De update-server antwoordt met foutcode 404 (Document niet gevonden).');
 DEFINE('_UPDATE_SERVER_CONN_ERROR','Verbinding met de update-server is mislukt.');
 

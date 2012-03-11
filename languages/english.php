@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2009-2012 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -19,8 +19,8 @@ DEFINE('_404', 'We\'re sorry but the page you requested could not be found.');
 DEFINE('_404_RTS', 'Return to site');
 
 // common
-DEFINE('_APP_NAME','phpMyGPX');
-DEFINE('_HTML_TITLE','phpMyGPX ::: track point managment');
+DEFINE('_APP_NAME','phpMyGPX-fosm');
+DEFINE('_HTML_TITLE','phpMyGPX-fosm ::: track point managment');
 
 DEFINE('_DATE_FORMAT_LC',"%Y-%m-%d"); //Uses PHP's strftime Command Format
 DEFINE('_DATE_FORMAT_LC2',"%A, %d %B %Y %H:%M");
@@ -152,7 +152,7 @@ DEFINE('_CMN_PDOP','PDOP');
 
 
 /** installation */
-DEFINE('_INST_OSM_SETUP','phpMyGPX-Setup: ');
+DEFINE('_INST_OSM_SETUP','phpMyGPX-fosm-Setup: ');
 DEFINE('_INST_WELCOME','Welcome');
 DEFINE('_INST_CHECKS','Environment checks');
 DEFINE('_INST_CONFIG','Configuration');
@@ -184,6 +184,7 @@ DEFINE('_INST_CFG_HOME_LOCATION_MAN','Please choose the home location of your ma
 
 DEFINE('_INST_LANGUAGE','Language');
 DEFINE('_INST_LANGUAGE_CHOOSE','Please choose your preferred language.');
+DEFINE('_INST_LOCALE','en_UK');
 DEFINE('_INST_MODE','Installation mode');
 DEFINE('_INST_MODE_NEW','New/fresh installation');
 DEFINE('_INST_MODE_UPGR3','Upgrade to version 0.3');
@@ -198,10 +199,12 @@ DEFINE('_INST_PROG_CONFIG_UPDATED','The config file was updated and saved.');
 DEFINE('_INST_DB_CREATE_SETUP','Create and setup database ');
 DEFINE('_INST_PROG_INST','Your MySQL database and all tables will be created...');
 DEFINE('_INST_DB_CONN_ERROR','Connection to database server failed. ');
+DEFINE('_INST_CREATE_USER','Operational database user created. ');
 DEFINE('_INST_UPGR3_ADD_BOOKM_TBL','Table for bookmarks was created.');
 DEFINE('_INST_UPGR3_ADD_WAYPTS_TBL','Table for waypoints was created.');
 DEFINE('_INST_UPGR5_ADD_POIS_TBL','Table for POIs/photos was created.');
 DEFINE('_INST_PROG_DB','Database was created.');
+DEFINE('_INST_USER_ACCESS','Operational user access granted. ');
 DEFINE('_INST_PROG_RENAMED','Installation folder was renamed for security reasons.');
 DEFINE('_INST_PROG_RENAME_ERROR','Please DO remove the installation folder for security reasons!');
 DEFINE('_INST_PROG_DONE','<b>CONGRATULATIONS!</b> You successfully installed the application!');
@@ -223,6 +226,7 @@ DEFINE('_MENU_GPX_DOWNL','download');
 DEFINE('_MENU_GPX_EDIT','edit');
 DEFINE('_MENU_GPX_DELETE','delete');
 DEFINE('_MENU_GPX_SEARCH','search GPX');
+DEFINE('_MENU_TRC_EDIT','Edit Trace Description');
 DEFINE('_MENU_TRKPT','Trackpoints');
 DEFINE('_MENU_TRKPT_VIEW','view Trackpoints');
 DEFINE('_MENU_TRKPT_SEARCH','search Trackpoints');
@@ -245,6 +249,7 @@ DEFINE('_MENU_NEW','new');
 
 DEFINE('_MENU_HOME','Home');
 DEFINE('_MENU_ABOUT','About...');
+DEFINE('_MENU_UPDATE','Update...');
 DEFINE('_MENU_BOOKMARK','Bookmarks');
 DEFINE('_MENU_MAP','Map');
 DEFINE('_MENU_MISC','Misc');
@@ -361,8 +366,14 @@ DEFINE('_DB_TOTAL_DISTANCE',' total distance');
 DEFINE('_ABOUT_CREDITS','Credits');
 DEFINE('_ABOUT_LICENSE','License');
 DEFINE('_UPDATE_CHECK_DISABLED','Check for updates has been disabled.');
-DEFINE('_UPDATE_AVAIL','An update of this software is available.');
+DEFINE('_UPDATE_AVAIL','An update of this software is available: ');
 DEFINE('_NO_UPDATE_AVAIL','No update available.');
+DEFINE('_BASED_ON','Based upon:');
+DEFINE('_UNFORKED_APP_NAME','phpMyGPX');
+DEFINE('_UNFORKED_APP_CURRENCY','<em>Base package currency:</em>');
+DEFINE('_NO_UNFORKED_UPDATE_AVAIL','Base phpMyGPX unchanged.');
+DEFINE('_UNFORKED_UPDATE_AVAIL','A new base phpMyGPX is available: ');
+DEFINE('_PROCEED_WITH_UPDATE','Proceed with update?');
 DEFINE('_UPDATE_SERVER_ERROR404','The update server returned error 404 (Document not found).');
 DEFINE('_UPDATE_SERVER_CONN_ERROR','Connection to update server failed.');
 

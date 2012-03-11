@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2009-2012 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -37,21 +37,26 @@ if(!$cfg['embedded_mode'] || !$cfg['public_host'] || check_password($cfg['admin_
 }
 
 HTML::heading(_MENU_ABOUT, 3);
-HTML::message(_APP_NAME ." Version ". _APP_VERSION ." (released: ". _APP_RELEASE_DATE .")");HTML::message("&copy; 2009-2012 S. Klemm");
+HTML::message(_APP_NAME ." Version ". _APP_VERSION ." (released: ". _APP_RELEASE_DATE .")");
+HTML::message(_BASED_ON . " " . _UNFORKED_APP_NAME . " Version ". _UNFORKED_APP_VERSION);
+HTML::message("&copy; 2009-2012 S. Klemm");
 
 // check for software updates
 if($cfg['check_updates'] && function_exists('fsockopen')) {
+	// Report phpmygpx.tuxfamily.org check in separate box:
+	echo "<table border align=\"right\">\n<tr>\n<td>\n";
+	HTML::message(_UNFORKED_APP_CURRENCY);
 	$url = "phpmygpx.tuxfamily.org/check_upd.php?v=". _APP_VERSION;
 	$answer = fetchUrlWithoutHanging($url, 5, 0);
 	#print_r($answer);
 	// successfully connected
 	if(strpos($answer[0], "200") !== FALSE) {
 		$version = strip_tags($answer[sizeof($answer)-1]);
-		if($version == _APP_VERSION) {
-			HTML::message(_NO_UPDATE_AVAIL);
+		if($version == _UNFORKED_APP_VERSION) {
+			HTML::message(_NO_UNFORKED_UPDATE_AVAIL);
 		}
 		else {
-			HTML::message_r("%1% ". _UPDATE_AVAIL . $version,
+			HTML::message_r("%1% ". _UNFORKED_UPDATE_AVAIL . $version,
 				'<img src="images/b_tipp.png" />');
 		}
 	}
@@ -63,6 +68,32 @@ if($cfg['check_updates'] && function_exists('fsockopen')) {
 	else {
 		HTML::message(_UPDATE_SERVER_CONN_ERROR);
 	}
+	echo "</td>\n</tr>\n</table>\n";
+	// Now report on github repository:
+	$url = "challis.id.au/get-phpmygpx-version";
+	$answer = fetchUrlWithoutHanging($url, 5, 0);
+	#print_r($answer);
+	// successfully connected
+	if(strpos($answer[0], "200") !== FALSE) {
+		$version = strip_tags($answer[sizeof($answer)-1]);
+		if($version == _APP_VERSION) {
+			HTML::message(_NO_UPDATE_AVAIL);
+		}
+		else {
+			HTML::message_r("%1% ". _UPDATE_AVAIL . $version,
+				'<img src="images/b_tipp.png" />');
+			HTML::message("<a href=\"update.php\">" . _PROCEED_WITH_UPDATE . "</a>");
+		}
+	}
+	// doc not found on update server
+	elseif(strpos($answer[0], "404") !== FALSE) {
+		HTML::message(_UPDATE_SERVER_ERROR404);
+	}
+	// no connection to update server
+	else {
+		HTML::message(_UPDATE_SERVER_CONN_ERROR);
+	}
+	echo "<hr>\n";
 }
 else {
 	HTML::message(_UPDATE_CHECK_DISABLED);

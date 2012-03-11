@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2009, 2010 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -62,6 +62,8 @@ $f_minlat = 0;
 $f_maxlat = 0;
 $f_minlon = 0;
 $f_maxlon = 0;
+$whereGPX = "";
+$whereId = "";
 
 if(!$zoom)	$zoom = 15;
 if(!$f_lat || !$f_lon) {

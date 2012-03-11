@@ -1,6 +1,62 @@
 Changelog
 ---------
 
+2011/03/11  phpMyGPX 0.6.1-fosm:
+- renamed all screen titles to reflect fork status of this version.
+- changed "powered by" screen footers to direct to github.com.
+- renamed "phone home" version check response to indicate pre-fork
+  project has been updated from version 0.6.1.
+- this version number renamed to 0.6.1a.
+- installation now creates operational mysql database user-id if
+  administrative user details are provided.
+  * additional progress output for user creation and access grant.
+  * grant database user access even when simply updating database
+    tables (previously access granted only on full installation.)
+- User interface tweaks:
+  * Permit longer lists of GPX traces (100,500) to be displayed on a
+    single screen, if user desires (and presumably is prepared to
+    wait if system slow!)
+- installation "set home location" SlippyMap now 4x4falcon.com.
+- added map overlay layer for FOSM tiles at http://map.4x4falcon.com
+  (new source file: openlayers/FOSM.js)
+- added proxied (buffered) access to http://map.4x4falcon.com as
+  default map base layer.
+- English translation tweaks:
+  * GPX description update button now reads "Save" instead of "Edit"
+    (i.e. describe what button will DO if pressed now; rather than
+    WHY activity was started... presumably user made that decision
+    one screen before!)
+- added selection of FOSM-related links to new column on index page.
+- addressed several conditions causing apache error logging:
+  * changed call to date('U) to equivalent time().
+  * intialised various variables before use.
+- added additional "phone home" to check if github updates present
+  (need to think how to better do this!)
+- added option to "about" screen to permit update to latest version
+  available at github.com.
+- a  number  of modules  have  been  touched  simply to  remove  stray
+  embedded  carriage-returns, presumably introduced  through use  of a
+  mixture  of  editors.  This  has  been  solely done  as  an  aid  to
+  consistency in  this release (and  was  driving me around the bend!)
+- partial fix for locale bug (we are all German!)
+  * Locale   now  drawn   from  language   file  (may   need  separate
+    configuration input item similar to language selection?)
+
+TODO:
+- Need to translate Dutch/French/German/Spanish language strings for:
+  * _BASED_ON
+  * _INST_CREATE_USER
+  * _INST_USER_ACCESS
+  * _MENU_TRC_EDIT
+  * _MENU_UPDATE
+  * _UNFORKED_APP_CURRENCY
+  * _NO_UNFORKED_UPDATE_AVAIL
+  * _UNFORKED_UPDATE_AVAIL
+  * _PROCEED_WITH_UPDATE
+  * _INST_LOCALE		(Dutch/French/Spanish only)
+
+------------------------------------------------------------------------
+Following is Changelog from phpMyGPX-0.6.1 (patched version)
 - feature: interactive creating, editing and deleting of waypoints using map
 - bugfix: #58 - missing i18n strings for database errors
 - bugfix: trim file names of photos to be shown within tables, add tooltip

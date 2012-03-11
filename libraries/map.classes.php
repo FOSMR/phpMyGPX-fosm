@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2010 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -137,6 +137,7 @@ class SlippyMap {
 			echo '<script src="'._PATH.'openlayers/hikinglayer.js"></script>'."\n";
 			echo '<script src="'._PATH.'openlayers/hikebikelayer.js"></script>'."\n";
 		}
+		echo '<script src="'._PATH.'openlayers/FOSM.js"></script>'."\n";
 		echo '<script src="'._PATH.'openlayers/mapquest_layers.js"></script>'."\n";
 		echo '<script src="'._PATH.'openlayers/map_events.js"></script>'."\n";
 		echo '<script src="'._PATH.'openlayers/map.js"></script>'."\n";

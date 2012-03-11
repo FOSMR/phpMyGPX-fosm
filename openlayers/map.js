@@ -1,6 +1,6 @@
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2009-2011 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -51,6 +51,9 @@ function createMap(lat, lon, zoom,
 	// of several layers is also quite simple
 	// Other defined layers are OpenLayers.Layer.OSM.Mapnik, OpenLayers.Layer.OSM.Maplint and OpenLayers.Layer.OSM.CycleMap
 	
+	layerFOSM = new OpenLayers.Layer.OSM.FOSM("FOSM", {buffer:tilebuffer});
+	map.addLayer(layerFOSM);
+	
 	layerMapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik", {buffer:tilebuffer});
 	map.addLayer(layerMapnik);
 	
@@ -94,8 +97,12 @@ function createMap(lat, lon, zoom,
 		layerTilesAtHomeLocalProxy = new OpenLayers.Layer.OSM.OsmarenderLocalProxy("Osmarender (local proxy)", {buffer:tilebuffer});
 		map.addLayer(layerTilesAtHomeLocalProxy);
 		
+		layerFOSMLocalProxy = new OpenLayers.Layer.OSM.FOSMLocalProxy("FOSM (local proxy)", {buffer:tilebuffer});
+		map.addLayer(layerFOSMLocalProxy);
+		
 		// use proxy for base layer
-		map.setBaseLayer(layerMapnikLocalProxy);
+		//map.setBaseLayer(layerMapnikLocalProxy);
+		map.setBaseLayer(layerFOSMLocalProxy);
 		
 		if (hiking) {
 			layerHikeBikeLocalProxy = new OpenLayers.Layer.OSM.HikeBikeLocalProxy("Hike & Bike (local proxy)", {buffer:tilebuffer});

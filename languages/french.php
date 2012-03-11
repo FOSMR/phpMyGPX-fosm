@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2009-2012 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -19,8 +19,8 @@ DEFINE('_404', 'Désolé, la page demandée n\'a pas pu être trouvée.');
 DEFINE('_404_RTS', 'Retourner au site');
 
 // common
-DEFINE('_APP_NAME','phpMyGPX');
-DEFINE('_HTML_TITLE','phpMyGPX ::: gestion des données');
+DEFINE('_APP_NAME','phpMyGPX-fosm');
+DEFINE('_HTML_TITLE','phpMyGPX-fosm ::: gestion des données');
 
 DEFINE('_DATE_FORMAT_LC',"%d.%m.%Y"); //Uses PHP's strftime Command Format
 DEFINE('_DATE_FORMAT_LC2',"%A, %d. %B %Y %H:%M");
@@ -152,7 +152,7 @@ DEFINE('_CMN_PDOP','PDOP');
 
 
 /** installation */
-DEFINE('_INST_OSM_SETUP','phpMyGPX-Installation: ');
+DEFINE('_INST_OSM_SETUP','phpMyGPX-fosm-Installation: ');
 DEFINE('_INST_WELCOME','Bienvenue');
 DEFINE('_INST_CHECKS','Vérifications de l\'environnement');
 DEFINE('_INST_CONFIG','Configuration');
@@ -184,6 +184,7 @@ DEFINE('_INST_CFG_HOME_LOCATION_MAN','Veuillez choisir le lieu principal de votr
 
 DEFINE('_INST_LANGUAGE','Langue');
 DEFINE('_INST_LANGUAGE_CHOOSE','Veuillez choisir votre langue.');
+DEFINE('_INST_LOCALE','en_US');	     //Untranslated!!
 DEFINE('_INST_MODE','Mode d\'installation');
 DEFINE('_INST_MODE_NEW','Nouvelle installation');
 DEFINE('_INST_MODE_UPGR3','Mise à jour vers la version 0.3');
@@ -198,10 +199,12 @@ DEFINE('_INST_PROG_CONFIG_UPDATED','Le fichier de configuration a été mis à j
 DEFINE('_INST_DB_CREATE_SETUP','Créer et configurer la base ');
 DEFINE('_INST_PROG_INST','Votre base MySQL et toutes les tables vont être crées...');
 DEFINE('_INST_DB_CONN_ERROR','La connexion à la base de données a échoué. ');
+DEFINE('_INST_CREATE_USER','Operational database user created. '); //Untranslated!!
 DEFINE('_INST_UPGR3_ADD_BOOKM_TBL','La table des marque-pages a été crée.');
 DEFINE('_INST_UPGR3_ADD_WAYPTS_TBL','La table des points de cheminement a été crée.');
 DEFINE('_INST_UPGR5_ADD_POIS_TBL','La table des photos et points d\'intérêt a été crée.');
 DEFINE('_INST_PROG_DB','La base de données a été crée.');
+DEFINE('_INST_USER_ACCESS','Operational user access granted. '); //Untranslated!!
 DEFINE('_INST_PROG_RENAMED','Le dossier d\'installation a été renommé pour des raisons de sécurité.');
 DEFINE('_INST_PROG_RENAME_ERROR','Pour des raisons de sécurité, veuillez SUPPRIMER le dossier d\'installation!');
 DEFINE('_INST_PROG_DONE','<b>FÉLICITATIONS!</b> Vous avez installé l\'application avec succès&nbsp;!');
@@ -223,6 +226,7 @@ DEFINE('_MENU_GPX_DOWNL','télécharger');
 DEFINE('_MENU_GPX_EDIT','éditer');
 DEFINE('_MENU_GPX_DELETE','supprimer');
 DEFINE('_MENU_GPX_SEARCH','chercher dans le GPX');
+DEFINE('_MENU_TRC_EDIT','Edit Trace Description'); //Untranslated!!
 DEFINE('_MENU_TRKPT','points de repérage');
 DEFINE('_MENU_TRKPT_VIEW','voir les points de repérage');
 DEFINE('_MENU_TRKPT_SEARCH','chercher dans les points de repérage');
@@ -245,6 +249,7 @@ DEFINE('_MENU_NEW','nouveau');
 
 DEFINE('_MENU_HOME','Accueil');
 DEFINE('_MENU_ABOUT','À propos...');
+DEFINE('_MENU_UPDATE','Update...');	// Untranslated!!
 DEFINE('_MENU_BOOKMARK','Marque-pages');
 DEFINE('_MENU_MAP','Carte');
 DEFINE('_MENU_MISC','Divers');
@@ -363,6 +368,12 @@ DEFINE('_ABOUT_LICENSE','Licence');
 DEFINE('_UPDATE_CHECK_DISABLED','La vérification des mises à jour a été désactivée.');
 DEFINE('_UPDATE_AVAIL','Une mise à jour du logiciel est disponible.');
 DEFINE('_NO_UPDATE_AVAIL','Pas de mise à jour disponible.');
+DEFINE('_BASED_ON','Based upon:');	//Untranslated!!
+DEFINE('_UNFORKED_APP_NAME','phpMyGPX');
+DEFINE('_UNFORKED_APP_CURRENCY','<em>Base package currency:</em>'); // Untranslated!!
+DEFINE('_NO_UNFORKED_UPDATE_AVAIL','Base phpMyGPX unchanged.'); // Untranslated!!
+DEFINE('_UNFORKED_UPDATE_AVAIL','A new base phpMyGPX is available: '); // Untranslated!!
+DEFINE('_PROCEED_WITH_UPDATE','Proceed with update?'); // Untranslated!!
 DEFINE('_UPDATE_SERVER_ERROR404','Le serveur de mise à jour a renvoyé une erreur 404 (Document non trouvé).');
 DEFINE('_UPDATE_SERVER_CONN_ERROR','La connexion au serveur de mise à jour a échoué.');
 

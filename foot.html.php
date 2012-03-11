@@ -7,7 +7,7 @@
 </td>
 <td width=33%>
 <div align="center">
-<font size="-1"><i>powered by <a href="http://phpmygpx.tuxfamily.org/"><?php echo _APP_NAME." "._APP_VERSION; ?></a></i></font>
+<font size="-1"><i>powered by <a href="https://github.com/FOSMR/phpMyGPX-fosm/"><?php echo _APP_NAME." "._APP_VERSION; ?></a></i></font>
 </div>
 </td>
 <td align="right">

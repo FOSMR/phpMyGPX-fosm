@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2008-2011 Lizard, Sebastian Klemm
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -33,8 +33,11 @@
 	  	$r = 'mapnik';
 	  	break;
 	  case 'osma':
-	  default:
 	  	$r = 'osma';
+	  	break;
+	  default:
+	  case 'FOSM':
+	  	$r = 'FOSM';
 	  	break;
 	}
 
@@ -61,7 +64,6 @@
 	      break;
 	    
       	case 'osma':
-      	default:
 	      $server[] = 'a.tah.openstreetmap.org';
 	      $server[] = 'b.tah.openstreetmap.org';
 	      $server[] = 'c.tah.openstreetmap.org';
@@ -69,11 +71,20 @@
 	      $url = 'http://'.$server[array_rand($server)].'/Tiles/tile';
 	      $url .= "/".$z."/".$x."/".$y.".png";
 	      break;
+
+      	case 'FOSM':
+      	default:
+	      $server[] = 'map.4x4falcon.com';
+	
+	      $url = 'http://'.$server[array_rand($server)].'/default';
+	      $url .= "/".$z."/".$x."/".$y.".png";
+	      break;
+	    
       }
       $ch = curl_init($url);
       $fp = fopen($file, "w");
       curl_setopt($ch, CURLOPT_FILE, $fp);
-      curl_setopt($ch, CURLOPT_USERAGENT, 'phpMyGPX (ProxySimplePHP)');
+      curl_setopt($ch, CURLOPT_USERAGENT, 'phpMyGPX-fosm (ProxySimplePHP)');
       curl_setopt($ch, CURLOPT_HEADER, 0);
       curl_exec($ch);
       curl_close($ch);

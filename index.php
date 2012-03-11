@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2008 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -82,13 +82,23 @@ function start() {
 	global $cfg;
 	HTML::heading(_HOME_WELCOME_TO . _APP_NAME, 3);
 	#HTML::message(_HOME_INTRO);
-	HTML::message('<a target="_blank" href="http://www.openstreetmap.org/">OpenStreetMap</a>');
-	HTML::message('<a target="_blank" href="http://www.osmtools.de/osmlinks/?lang='.
+	echo "<table width=\"100%\">\n<tr>\n<td>\n<ul>\n";
+	HTML::message('<li><a target="_blank" href="http://www.openstreetmap.org/">OpenStreetMap</a>');
+	HTML::message('<li><a target="_blank" href="http://www.osmtools.de/osmlinks/?lang='.
 		_LANGUAGE .'&lat='. $cfg['home_latitude'] .'&lon='. $cfg['home_longitude']
 		.'&zoom='. $cfg['home_zoom'] .'">OpenStreetMap Links</a>');
 	if($cfg['pma_app_show_link']) {
-		HTML::message('<a target="_blank" href="'.$cfg['pma_app_path'].'">phpMyAdmin</a>');
+		HTML::message('<li><a target="_blank" href="'.$cfg['pma_app_path'].'">phpMyAdmin</a>');
 	}
+	echo "</td>\n<td>\n<ul>\n";
+	HTML::message('<li><a target="_blank" href="http://www.fosm.org/">FreeOSM</a>');
+	HTML::message('<li><a target="_blank" href="https://plus.google.com/u/0/109605121902034223436/posts">FOSM on Google+</a>');
+	HTML::message('<li><a target="_blank" href=http://fosm-announcements.blogspot.com/"">FOSM announcements blog</a>');
+	HTML::message('<li><a target="_blank" href=http://tianjara.net/leaflet.html"">Tianjara Leaflet Demo</a>');
+	HTML::message('<li><a target="_blank" href=http://tianjara.net/cgi-bin/fosm-deep-history/"">Tianjara Deep History</a>');
+	HTML::message('<li><a target="_blank" href=http://map.4x4falcon.com/"">4x4falcon Mapnik</a>');
+	HTML::message('<li><a target="_blank" href="http://map.4x4falcon.com/slider/">4x4falcon OSM-FOSM comparison viewer</a>');
+	echo "</td>\n</tr>\n</table>\n";
 }
 
 

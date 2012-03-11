@@ -26,6 +26,8 @@ $upgrade = getUrlParam('HTTP_GET', 'INT', 'upgrade');
 
 setlocale (LC_TIME, $cfg['config_locale']);
 include("../languages/".get_lang($cfg['config_language']).".php");
+$cfg['config_locale'] = _INST_LOCALE;
+setlocale (LC_TIME, $cfg['config_locale']);
 include("../head.html.php");
 
 HTML::heading(_INST_OSM_SETUP._INST_WELCOME, 3);

@@ -1,17 +1,17 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2009, 2010 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
-
+define( 'E_NONE', 0 );
 define( '_VALID_OSM', TRUE );
 define( '_PATH', './' );
 $DEBUG = FALSE;
 if($DEBUG) error_reporting(E_ALL);
 else       error_reporting(E_NONE);
-include("./config.inc.php");
+include("./config.inc.php");
 include("./libraries/functions.inc.php");
 setlocale (LC_TIME, $cfg['config_locale']);
 

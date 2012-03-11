@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2008 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -114,11 +114,14 @@ class HTML {
 		echo "  <option value=25>25</option>\n";
 		echo "  <option value=35>35</option>\n";
 		echo "  <option value=50>50</option>\n";
+		echo "  <option value=100>100</option>\n";
+		echo "  <option value=500>500</option>\n";
 		echo "</select>\n";
 		echo "</div>\n";
 	}
 
     function viewTimezoneSelect($selected) {
+    	global $limit;
 		echo '<div class="viewSelect">'. _CMN_TIMEZONE .': ';
 		echo "<select size=1 name='tz' >\n";
 		echo "  <option value=0>"._CMN_TIMEZONE.": $limit</option>\n";

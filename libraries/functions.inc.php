@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2009-2011 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -418,7 +418,7 @@ function checkCapability($feature) {
 
 function getUrlParam($method, $type, $var) {
 	// definitions of pseudo constants for 'method' (HTTP method)
-	$HTTP_GET = 1;	$HTTP_POST = 2;	
+	$HTTP_GET = 1;	$HTTP_POST = 2;	
 	if(!is_int($method)) $method = $$method;
 	switch ($method) {
 		case 2:

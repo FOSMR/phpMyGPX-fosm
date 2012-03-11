@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2009-2011 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -517,7 +517,7 @@ function importTrace() {
 
 function editTrace($id, $submit) {
 	global $DEBUG, $cfg;
-    HTML::heading(_MENU_GPX_EDIT, 3);
+    HTML::heading(_MENU_TRC_EDIT, 3);
     if(!$cfg['public_host'] || check_password($cfg['admin_password'])) {
 	    if(!$submit) {
 	        $query = "SELECT * FROM `${cfg['db_table_prefix']}gpx_files` 

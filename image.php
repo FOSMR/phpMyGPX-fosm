@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2008 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -11,7 +11,7 @@ define( '_PATH', './' );
 define('_GRID_LINES', 5);
 $DEBUG = FALSE;
 if($DEBUG) error_reporting(E_ALL);
-include("./config.inc.php");
+include("./config.inc.php");
 include("./libraries/functions.inc.php");
 setlocale (LC_TIME, $cfg['config_locale']);
 

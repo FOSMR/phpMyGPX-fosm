@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2009-2012 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -49,6 +49,12 @@ $mysql_err_count = 0;
 // connect to database server
 if($db_root && $db_rootpass) {
 	$link = mysql_connect($cfg['db_host'], $db_root, $db_rootpass);
+	$query = "CREATE USER `".$cfg['db_user']."`@`".$cfg['db_host']."` IDENTIFIED BY '".$cfg['db_password']."';";
+	$result = mysql_query($query);
+	// literally do not care if db_user@db_host already exists!
+	if($result) {
+		HTML::message(_INST_CREATE_USER);
+	}
 }else
 	$link = mysql_connect($cfg['db_host'], $cfg['db_user'], $cfg['db_password']);
 
@@ -122,17 +128,19 @@ if(!$link) {
 		    out(_INST_DB_ERROR. mysql_error(), 3);
 		    $mysql_err_count++;
 		}
+	}
 		
-		// grant privileges to db user
-		if($db_root && $db_rootpass) {
-			$query = "GRANT select,insert,update,delete ON `".$cfg['db_name']."`.* TO 
-				'".$cfg['db_user']."'@'".$cfg['db_host']."' identified by '".$cfg['db_password']."'; ";
-			$result = mysql_query($query);
-			if(!$result) {
-			    out(_INST_DB_ERROR. mysql_error(), 3);
-			    $mysql_err_count++;
-			}
-		}
+	// grant privileges to db user
+	if($db_root && $db_rootpass) {
+	    $query = "GRANT select,insert,update,delete ON `".$cfg['db_name']."`.* TO 
+		'".$cfg['db_user']."'@'".$cfg['db_host']."' identified by '".$cfg['db_password']."'; ";
+	    $result = mysql_query($query);
+	    if(!$result) {
+	        out(_INST_DB_ERROR. mysql_error(), 3);
+	        $mysql_err_count++;
+	    } else {
+		HTML::message(_INST_USER_ACCESS);
+	    }
 	}
 	
 	// install or upgrade database for app version 0.3 and later

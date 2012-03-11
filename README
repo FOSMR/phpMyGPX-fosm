@@ -10,13 +10,16 @@ overlays etc.
 This fork  is based upon that  patched version (also  known as version
 0.6.1.)
 
-As an aide to tracking differences,  the initial check in of this code
-to github (should be!) identical to Sebastian's code.
+Please  see  CHANGELOG  for  detailed  overview of  changes.  This  is
+essentially a "first-cut" changing Sebastian's code for FOSM use.
 
 Known Issues:
 
-* "Phones Home" to http://phpmygpx.tuxfamily.org/check_upd.php?v=0.6.1
-   whenever  "about" memu item  accessed, and  expects response  to be
-   exactly the  unadorned string  "0.6.1", otherwise announces  that a
-   software  update is  available.  No  attempt is  made  to check  if
-   available version number is newer or older than the local copy.
+* The "Phone Home" code needs  to access an external site to determine
+  if a  new version of  software is available (Sebastian's  checks are
+  also still  performed.) The current  choice is determined  purely by
+  servers over  whom I have  control; and are  not the best  choice. A
+  better solution  is required.
+
+* A number of language strings  have been introduced which now require
+  translation. (Can somebody please oblige?)

@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2009, 2010 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -150,7 +150,7 @@ class HTML_traces {
     function viewGpxTableRow($gpx) {
 		global $cfg;
 		echo "<tr>
-			<td><input type='checkbox' name='bfiles[]' value='${gpx[id]}' /></td>
+			<td><input type='checkbox' name='bfiles[]' value='$gpx[id]' /></td>
 			<td>". strftime(_DATE_FORMAT_LC, strtotime($gpx['mints']) + $gpx['timezone']*3600) ."</td>
 			<td><a href='?task=details&id=$gpx[id]'>$gpx[description]</a></td>
 			<td>". round($gpx['length']/1000, 1) ." km</td>
@@ -331,7 +331,7 @@ class HTML_traces {
     	echo "<b>". _CMN_FILE_SIZE .":</b> ". (round($gpx['size']/1024, 1)) ." kB<br />\n";
     	echo "<b>". _CMN_INSERTED .":</b> ". strftime(_DATE_FORMAT_LC2, strtotime($gpx['timestamp'])) ."<br />\n";
         echo _CMN_DESCRIPTION .": <input type='text' name='description' value='".$gpx['description']."' size=80 /><br/>\n";
-        echo "<input type='submit' name='submit_btn' value='"._MENU_GPX_EDIT."' onClick='submit();' />\n";
+        echo "<input type='submit' name='submit_btn' value='"._CMN_SAVE."' onClick='submit();' />\n";
         echo "<input type='hidden' name='submit' value='edit' />\n";
         echo "\n";
         echo "</form>\n";

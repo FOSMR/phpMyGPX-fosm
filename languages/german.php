@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2009-2012 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -19,8 +19,8 @@ DEFINE('_404', 'Die angefragte Seite konnte nicht gefunden werden.');
 DEFINE('_404_RTS', 'Zur&uuml;ck zur Site');
 
 // common
-DEFINE('_APP_NAME','phpMyGPX');
-DEFINE('_HTML_TITLE','phpMyGPX ::: Trackpoint-Verwaltung');
+DEFINE('_APP_NAME','phpMyGPX-fosm');
+DEFINE('_HTML_TITLE','phpMyGPX-fosm ::: Trackpoint-Verwaltung');
 
 DEFINE('_DATE_FORMAT_LC',"%d.%m.%Y"); //Verwendet das PHP strftime Format
 DEFINE('_DATE_FORMAT_LC2',"%A, %d. %B %Y %H:%M");
@@ -152,7 +152,7 @@ DEFINE('_CMN_PDOP','PDOP');
 
 
 /** installation */
-DEFINE('_INST_OSM_SETUP','phpMyGPX-Setup: ');
+DEFINE('_INST_OSM_SETUP','phpMyGPX-fosm-Setup: ');
 DEFINE('_INST_WELCOME','Willkommen');
 DEFINE('_INST_CHECKS','Umgebung &uuml;berpr&uuml;fen');
 DEFINE('_INST_CONFIG','Konfiguration');
@@ -184,6 +184,7 @@ DEFINE('_INST_CFG_HOME_LOCATION_MAN','Wählen Sie die Standard-Startkoordinaten 
 
 DEFINE('_INST_LANGUAGE','Sprache');
 DEFINE('_INST_LANGUAGE_CHOOSE','Bitte w&auml;hlen Sie Ihre bevorzugte Sprache aus.');
+DEFINE('_INST_LOCALE','de_DE.UTF-8');
 DEFINE('_INST_MODE','Installationsmethode');
 DEFINE('_INST_MODE_NEW','Neuinstallation');
 DEFINE('_INST_MODE_UPGR3','Upgrade zu Version 0.3');
@@ -198,10 +199,12 @@ DEFINE('_INST_PROG_CONFIG_UPDATED','Die Konfigurationsdatei wurde aktualisiert u
 DEFINE('_INST_DB_CREATE_SETUP','Datenbank erstellen und einrichten ');
 DEFINE('_INST_PROG_INST','Die MySQL-Datenbank einschlie&szlig;lich aller notwendigen Tabellen wird nun angelegt...');
 DEFINE('_INST_DB_CONN_ERROR','Verbindung zum Datenbank-Server fehlgeschlagen. ');
+DEFINE('_INST_CREATE_USER','Operational database user created. '); //Untranslated!!
 DEFINE('_INST_UPGR3_ADD_BOOKM_TBL','Lesezeichen-Tabelle wurde erfolgreich angelegt.');
 DEFINE('_INST_UPGR3_ADD_WAYPTS_TBL','Wegpunkt-Tabelle  wurde erfolgreich angelegt.');
 DEFINE('_INST_UPGR5_ADD_POIS_TBL','POI/Foto-Tabelle  wurde erfolgreich angelegt.');
 DEFINE('_INST_PROG_DB','Datenbank wurde erfolgreich angelegt.');
+DEFINE('_INST_USER_ACCESS','Operational user access granted. '); //Untranslated!!
 DEFINE('_INST_PROG_RENAMED','Installations-Verzeichnis wurde zur Sicherheit umbenannt.');
 DEFINE('_INST_PROG_RENAME_ERROR','Bitte l&ouml;schen Sie aus Sicherheitsgr&uuml;nden nun unbedingt das Installations-Verzeichnis!');
 DEFINE('_INST_PROG_DONE','<b>GL&Uuml;CKWUNSCH!</b> Sie haben Ihre Anwendung erfolgreich installiert!');
@@ -223,6 +226,7 @@ DEFINE('_MENU_GPX_DOWNL','GPX herunterladen');
 DEFINE('_MENU_GPX_EDIT','GPX bearbeiten');
 DEFINE('_MENU_GPX_DELETE','GPX l&ouml;schen');
 DEFINE('_MENU_GPX_SEARCH','GPX suchen');
+DEFINE('_MENU_TRC_EDIT','Edit Trace Description'); //Untranslated!!
 DEFINE('_MENU_TRKPT','Trackpunkte');
 DEFINE('_MENU_TRKPT_VIEW','Trackpunkte ansehen');
 DEFINE('_MENU_TRKPT_SEARCH','Trackpunkte suchen');
@@ -245,6 +249,7 @@ DEFINE('_MENU_NEW','neu');
 
 DEFINE('_MENU_HOME','Startseite');
 DEFINE('_MENU_ABOUT','&Uuml;ber...');
+DEFINE('_MENU_UPDATE','Update...');	// Untranslated!!
 DEFINE('_MENU_BOOKMARK','Lesezeichen');
 DEFINE('_MENU_MAP','Karte');
 DEFINE('_MENU_MISC','Extra');
@@ -363,6 +368,12 @@ DEFINE('_ABOUT_LICENSE','Lizenz');
 DEFINE('_UPDATE_CHECK_DISABLED','Die Suche nach Programm-Updates wurde deaktiviert.');
 DEFINE('_UPDATE_AVAIL','Die folgende Programm-Aktualisierung ist verf&uuml;gbar: ');
 DEFINE('_NO_UPDATE_AVAIL','Es ist keine Programm-Aktualisierung verf&uuml;gbar.');
+DEFINE('_BASED_ON','Based upon:');	//Untranslated!!
+DEFINE('_UNFORKED_APP_NAME','phpMyGPX');
+DEFINE('_UNFORKED_APP_CURRENCY','<em>Base package currency:</em>'); // Untranslated!!
+DEFINE('_NO_UNFORKED_UPDATE_AVAIL','Base phpMyGPX unchanged.'); // Untranslated!!
+DEFINE('_UNFORKED_UPDATE_AVAIL','A new base phpMyGPX is available: '); // Untranslated!!
+DEFINE('_PROCEED_WITH_UPDATE','Proceed with update?'); // Untranslated!!
 DEFINE('_UPDATE_SERVER_ERROR404','Der Update-Server antwortete mit Fehler 404 (Dokument nicht gefunden).');
 DEFINE('_UPDATE_SERVER_CONN_ERROR','Verbindung zum Update-Server fehlgeschlagen.');
 

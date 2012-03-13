@@ -6,6 +6,8 @@
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
 
+include("./config.inc.php");
+
 /**
 * ProxySimplePHP (C) by Lizard
 * http://wiki.openstreetmap.org/wiki/ProxySimplePHP
@@ -34,6 +36,9 @@
 	  	break;
 	  case 'osma':
 	  	$r = 'osma';
+	  	break;
+	  case 'NearMap':
+	  	$r = 'NearMap';
 	  	break;
 	  default:
 	  case 'FOSM':
@@ -72,6 +77,20 @@
 	      $url .= "/".$z."/".$x."/".$y.".png";
 	      break;
 
+      	case 'NearMap':
+	      $server[] = 'web0.nearmap.com';
+	      $server[] = 'web1.nearmap.com';
+	      $server[] = 'web2.nearmap.com';
+	      $server[] = 'web3.nearmap.com';
+
+	      // NearMap produces JPEG tiles... the PNG extension above confuses
+	      // cache extraction later on, so...
+	      $file = "tiles/${r}/${z}_${x}_${y}.jpeg";
+
+	      $url = 'https://'.$server[array_rand($server)].'/maps/nml=Vert';
+	      $url .= "&z=".$z."&x=".$x."&y=".$y."&hl=en";
+	      break;
+
       	case 'FOSM':
       	default:
 	      $server[] = 'map.4x4falcon.com';
@@ -85,7 +104,12 @@
       $fp = fopen($file, "w");
       curl_setopt($ch, CURLOPT_FILE, $fp);
       curl_setopt($ch, CURLOPT_USERAGENT, 'phpMyGPX-fosm (ProxySimplePHP)');
-      curl_setopt($ch, CURLOPT_HEADER, 0);
+      curl_setopt($ch, CURLOPT_HEADER, FALSE);
+      if($cfg['nearmap_support']) {
+            curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+      	    curl_setopt($ch, CURLOPT_USERPWD,
+	        $cfg['nearmap_user'].":".$cfg['nearmap_pwd']);
+      }
       curl_exec($ch);
       curl_close($ch);
       fflush($fp);

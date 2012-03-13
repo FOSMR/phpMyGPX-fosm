@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2009, 2010 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -44,7 +44,9 @@ $name	= getUrlParam('HTTP_GET', 'STRING', 'name');
 // handling of sql result limit
 if($limit) {
 	// calc new page number caused by changed result limit
-	$p = round($p * $_COOKIE['limit'] / $limit);
+	$p = round($p * 
+ 	    (isset($_COOKIE['limit']) ? $_COOKIE['limit'] : 0) /
+	    $limit);
 	setcookie('limit', $limit, time() + 3600 * $cfg['pref_cookie_lifetime']);
 } elseif(isset($_COOKIE['limit']))
 	$limit = $_COOKIE['limit'];

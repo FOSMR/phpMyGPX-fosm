@@ -70,6 +70,9 @@ HTML::message(_INST_PROG_CHECKS);
     $dir = _PATH .'tiles/FOSM/';
     printDirPerms($dir);
     
+    $dir = _PATH .'tiles/NearMap/';
+    printDirPerms($dir);
+    
     // check web server capabilities and PHP extensions
     printCapability('mysql', 'MySQL extension', 0);
     #printCapability('mysqli', 'MySQLi extension', 0);

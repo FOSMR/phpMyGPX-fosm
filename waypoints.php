@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2009-2011 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
@@ -67,7 +67,9 @@ if($option == "search") {
 // handling of sql result limit
 if($limit) {
 	// calc new page number caused by changed result limit
-	$p = round($p * $_COOKIE['limit'] / $limit);
+	$p = round($p *
+	    (isset($_COOKIE['limit']) ? $_COOKIE['limit'] : 0) /
+	    $limit);
 	setcookie('limit', $limit, time() + 3600 * $cfg['pref_cookie_lifetime']);
 } elseif(isset($_COOKIE['limit']))
 	$limit = $_COOKIE['limit'];
@@ -247,13 +249,16 @@ function editWaypoints($id, $submit) {
 					'icon_file'=>'openlayers/img/marker.png'));
 			}
 		} else {
-			$lat = intval($_POST['wpt_lat']*1000000);
-			$lon = intval($_POST['wpt_lon']*1000000);
-			$alt = floatval($_POST['wpt_alt']);
-			$name = db_escape_string(strip_tags($_POST['name']));
-			$comment = db_escape_string(strip_tags($_POST['cmt']));
-			$description = db_escape_string(strip_tags($_POST['desc']));
-			$icon_file = db_escape_string(strip_tags($_POST['map_icon_url']));
+			$lat = isset($_POST['wpt_lat']) ? intval($_POST['wpt_lat']*1000000) : 0;
+			$lon = isset($_POST['wpt_lon']) ? intval($_POST['wpt_lon']*1000000) : 0;
+			$alt = isset($_POST['wpt_alt']) ? floatval($_POST['wpt_alt']) : 0;
+			$name = isset($_POST['name']) ? db_escape_string(strip_tags($_POST['name'])) : "";
+			$comment = isset($_POST['cmt']) ? db_escape_string(strip_tags($_POST['cmt'])) : "";
+			$description = isset($_POST['desc']) ?
+			    db_escape_string(strip_tags($_POST['desc'])) : "";
+			$icon_file = isset($_POST['map_icon_url']) ?
+			    db_escape_string(strip_tags($_POST['map_icon_url'])) :
+			    "openlayers/img/zoom-world-mini.png";
 			
 			if($id) {
 				// update waypoint

@@ -128,15 +128,15 @@ if($type) {
 	
 	// creating XML Http Request response
 	echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-	echo "<phpmygpx>\n";
+	echo "<phpmygpx-fosm>\n";
 	echo "  <import 
 				type=\"".$type."\" 
 				id=\"".$id."\" 
 				file=\"".$file."\" 
 				status=\"".$status['error']."\" 
-				lid=\"".$status['lid']."\" 
+				lid=\"".(isset($status['lid']) ? $status['lid'] : "")."\" 
 				msg=\"".rawurlencode($status['msg'])."\" 
 			/>\n";
-	echo "</phpmygpx>\n";
+	echo "</phpmygpx-fosm>\n";
 }
 ?>

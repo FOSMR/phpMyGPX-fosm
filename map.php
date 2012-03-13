@@ -48,7 +48,12 @@ $f_lat	= getUrlParam('HTTP_GET', 'FLOAT', 'lat');
 $f_lon	= getUrlParam('HTTP_GET', 'FLOAT', 'lon');
 $zoom 	= getUrlParam('HTTP_GET', 'INT', 'zoom');
 $marker	= getUrlParam('HTTP_GET', 'INT', 'marker');
+$icon	= getUrlParam('HTTP_GET', 'STRING', 'icon');
 $poi 	= getUrlParam('HTTP_GET', 'INT', 'poi');
+
+if(!file_exists($icon)) {
+   $icon = './openlayers/img/marker.png';
+}
 
 // connect to database
 $link = db_connect_h($cfg['db_host'], $cfg['db_name'], $cfg['db_user'], $cfg['db_password']);
@@ -147,8 +152,10 @@ $map->setBoundingBox($f_maxlat, $f_maxlon, $f_minlat, $f_minlon);
 if($cfg['local_tile_proxy'] && checkCapability('proxysimple'))
 	$map->enableFeatures(array('proxy'=>TRUE));
 $map->enableFeatures(array('gpx'=>$gpx));
-if($marker)
+if($marker) {
 	$map->enableOverlays(new Layer('marker',TRUE));
+	$map->enableFeatures(array('icon_url'=>$icon));
+}
 if($cfg['photo_features'])
 	$map->enableOverlays(new Layer('photos',TRUE));
 $map->enableOverlays(new Layer('hiking',TRUE));

@@ -6,6 +6,14 @@
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
 
+// Following check required as map.classes may be called during installation
+// of config.inc.php, in which case fall back upon defaults
+if(!file_exists( dirname(__FILE__).'/../config.inc.php' )) {
+	include_once(dirname(__FILE__)."/../installation/config.defaults.php");
+} else {
+	include_once(dirname(__FILE__)."/../config.inc.php");
+}
+
 class SlippyMap {
 	private $width = 0;
 	private $height = 0;
@@ -18,6 +26,7 @@ class SlippyMap {
 	private $proxy = 0;
 	private $photominzoom = 14;
 	private $gpx = null;
+	private $icon_url = './openlayers/img/marker.png';
 	private $baselayers = null;	// mapnik, osma, cycle
 	private $overlays = null;	// gpx, markers, photos, hiking
 	
@@ -71,7 +80,7 @@ class SlippyMap {
 	}
 	
 	public function enableFeatures($ft) {
-		if(0 && is_array($ft)) {
+		if(0 & is_array($ft)) {
 			foreach($ft as $feature) {
 				$this->_setFeatureState(key($feature), $feature[key($feature)]);
 			}
@@ -92,6 +101,9 @@ class SlippyMap {
 				break;
 			case 'gpx':
 				$this->gpx = $state;
+				break;
+			case 'icon_url':
+			        $this->icon_url = strip_tags($state);
 				break;
 		}
 	}
@@ -139,6 +151,9 @@ class SlippyMap {
 		}
 		echo '<script src="'._PATH.'openlayers/FOSM.js"></script>'."\n";
 		echo '<script src="'._PATH.'openlayers/AGRI.js"></script>'."\n";
+		if($cfg['nearmap_support']) {
+		    echo '<script src="'._PATH.'openlayers/NearMap.js"></script>'."\n";
+		}
 		echo '<script src="'._PATH.'openlayers/mapquest_layers.js"></script>'."\n";
 		echo '<script src="'._PATH.'openlayers/map_events.js"></script>'."\n";
 		echo '<script src="'._PATH.'openlayers/map.js"></script>'."\n";
@@ -152,6 +167,7 @@ class SlippyMap {
 	}
 	
 	public function embedJSinitMap() {
+	       global $cfg;
 		echo '<script type="text/javascript">'."\n";
 		// create Array for GPX files
 		if (is_array($this->gpx)) {
@@ -174,7 +190,9 @@ class SlippyMap {
 				$gpx ,
 				".intval($this->_isSelectedOverlay('hiking'))." ,
 				".intval($this->_isSelectedOverlay('marker'))." ,
+				'".strip_tags($this->icon_url)."' ,
 				".intval($this->_isSelectedOverlay('photos'))." ,
+				".intval($cfg['nearmap_support'])." ,
 				".intval($this->photominzoom)." ,
 				".intval($this->buffer)." ,
 				".intval($this->proxy)." );\n";

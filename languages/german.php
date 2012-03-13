@@ -179,6 +179,11 @@ DEFINE('_INST_CFG_ADMIN_ACCESS','Administrations-Zugang');
 DEFINE('_INST_CFG_ADMIN_ACCESS_MAN','Falls Ihr Server frei zug&auml;nglich ist, sollten Sie dies hier ankreuzen und ein Passwort f&uuml;r die Verwaltung vergeben!');
 DEFINE('_INST_CFG_PUBLIC_HOST','Frei zug&auml;nglicher Server');
 DEFINE('_INST_CFG_ADMIN_PASSWORD','Admin-Passwort');
+DEFINE('_INST_CFG_NEARMAP_ACCESS','NearMap access');	//Untranslated!!
+DEFINE('_INST_CFG_NEARMAP_ACCESS_MAN','Do you wish to enable access to NearMap photomap layers?<br>You will need to provide the authentication details below in order to use them:');	//Untranslated!!
+DEFINE('_INST_CFG_NEARMAP_SUPPORT','Enable NearMap layers?');	//Untranslated!!
+DEFINE('_INST_CFG_NEARMAP_USER','NearMap user ID');	//Untranslated!!
+DEFINE('_INST_CFG_NEARMAP_PWD','NearMap password');	//Untranslated!!
 DEFINE('_INST_CFG_HOME_LOCATION','Startpunkt');
 DEFINE('_INST_CFG_HOME_LOCATION_MAN','Wählen Sie die Standard-Startkoordinaten der Karte durch Verschieben und Zoomen des nebenstehenden Ausschnittes.');
 
@@ -233,6 +238,7 @@ DEFINE('_MENU_TRKPT_SEARCH','Trackpunkte suchen');
 DEFINE('_MENU_WPT','Wegpunkte');
 DEFINE('_MENU_WPT_VIEW','Wegpunkte ansehen');
 DEFINE('_MENU_WPT_EDIT','Wegpunkt bearbeiten');
+DEFINE('_MENU_WPT_SAVE','save Waypoint');	//Untranslated!!
 DEFINE('_MENU_WPT_DELETE','Wegpunkt l&ouml;schen');
 DEFINE('_MENU_WPT_SEARCH','Wegpunkte suchen');
 DEFINE('_MENU_PHOTO','Foto');

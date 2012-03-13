@@ -10,12 +10,14 @@ include("./config.inc.php");
 
 class HTML_waypoints {
     function viewWPTsTableHeader($url, $sort, $order) {
+		global $cfg;
 		if(!$cfg['public_host'] || check_password($cfg['admin_password']))
 			$icon_columns = 3;
 		else
 			$icon_columns = 2;
 		echo "<table class='data'>";
         echo "<tr class='head'>";
+        echo "<th>"._CMN_ICON."</th>";
         HTML::viewTabColHead($url, 3, $sort, $order, _CMN_DATE);
         echo "<th>"._CMN_LAT."</th><th>"._CMN_LON."</th>";
         HTML::viewTabColHead($url, 2, $sort, $order, _CMN_ALT);
@@ -30,11 +32,14 @@ class HTML_waypoints {
 		global $cfg;
     	$lat = $tp['latitude']/1000000;
     	$lon = $tp['longitude']/1000000;
-		echo "<tr><td>". strftime(_DATE_FORMAT_LC3, strtotime($tp['timestamp']) + $tp['timezone']*3600) ."</td>
-			<td><a href='map.php?lat=$lat&lon=$lon&zoom=17&marker=1'>$lat</td>
-			<td><a href='map.php?lat=$lat&lon=$lon&zoom=17&marker=1'>$lon</td>
-			<td>$tp[altitude]</td>
-			<td>$tp[name]</td><td>$tp[cmt]</td><td>$tp[desc]</td>
+		echo "<tr><td><img id='map_icon' src='".$tp['icon_file']."' border=0 />
+                        <td>". strftime(_DATE_FORMAT_LC3, strtotime($tp['timestamp']) + $tp['timezone']*3600) ."</td>
+			<td>$lat</td>
+			<td>$lon</td>
+			<td>".intval($tp['altitude'])."</td>
+			<td><a href='map.php?lat=$lat&lon=$lon&zoom=17&marker=1&icon=".$tp['icon_file']."'>".$tp['name']."</a></td>
+                        <td>".$tp['cmt']."</td>
+                        <td>".$tp['desc']."</td>
 			<td>". HTML::getGpxLink($tp) ."</td>";
 		// show map icon only if waypoint belongs to a gpx file
 		if($tp['gpx_id'])
@@ -86,6 +91,7 @@ class HTML_waypoints {
 	}
 
 	function editForm($url, $id, $wpt) {
+		global $cfg;
 		$lat = $wpt['latitude']/1000000;
 		$lon = $wpt['longitude']/1000000;
 		
@@ -114,7 +120,7 @@ class HTML_waypoints {
 		echo "<tr><td><b>". _CMN_COMMENT .":</b> </td><td><textarea name='cmt' cols=32 rows=3>".$wpt['cmt']."</textarea></td></tr>\n";
 		echo "<tr><td><b>". _CMN_DESCRIPTION .":</b> </td><td><textarea name='desc' cols=32 rows=3>".$wpt['desc']."</textarea></td></tr>\n";
 		echo "<tr><td colspan=2>"; 
-		echo "<input type='submit' name='submit_btn' value='"._MENU_WPT_EDIT."' onClick='submit();' />\n";
+		echo "<input type='submit' name='submit_btn' value='"._MENU_WPT_SAVE."' onClick='submit();' />\n";
 		echo "<input type='hidden' name='submit' value='edit' />\n";
 		echo "</td></tr></table></td><td align='right' valign='top'>\n";
 		$map = new SlippyMap();
@@ -123,6 +129,7 @@ class HTML_waypoints {
 		if(intval($cfg['local_tile_proxy'] && checkCapability('proxysimple')))
 			$map->enableFeatures(array('proxy'=>TRUE));
 		$map->enableFeatures(array('controls'=>'minimal'));
+		$map->enableFeatures(array('icon_url'=>$wpt['icon_file']));
 		$map->enableOverlays(new Layer('marker',TRUE));
 		$map->embed();
 		echo "</td></tr></table>\n";

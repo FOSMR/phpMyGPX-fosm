@@ -65,7 +65,9 @@ if($option == "search") {
 // handling of sql result limit
 if($limit) {
 	// calc new page number caused by changed result limit
-	$p = round($p * $_COOKIE['limit'] / $limit);
+	$p = round($p *
+	    (isset($_COOKIE['limit']) ? $_COOKIE['limit'] :0) /
+	    $limit);
 	setcookie('limit', $limit, time() + 3600 * $cfg['pref_cookie_lifetime']);
 }elseif(isset($_COOKIE['limit']))
 	$limit = $_COOKIE['limit'];
@@ -507,7 +509,8 @@ function importTrace() {
 	    }else {
 	    	HTML::message(_TRC_UPL_SUCCESS);
 			HTML_traces::viewImportForm(1, basename($file), $dir, 
-				strip_tags($_POST['description']), intval($_POST['tz']));
+				isset($_POST['description']) ? strip_tags($_POST['description']) : "",
+				isset($_POST['tz']) ? intval($_POST['tz']) : "");
 			HTML_traces::viewImportProgress();
 		}
     }else {
@@ -516,7 +519,7 @@ function importTrace() {
 }
 
 function editTrace($id, $submit) {
-	global $DEBUG, $cfg;
+    global $DEBUG, $cfg;
     HTML::heading(_MENU_TRC_EDIT, 3);
     if(!$cfg['public_host'] || check_password($cfg['admin_password'])) {
 	    if(!$submit) {
@@ -529,8 +532,11 @@ function editTrace($id, $submit) {
 		    else
 				HTML::message(_TRC_GPX_DOES_NOT_EXIST);
 	    } else {
-			// edit description of gpx file
-			$description = db_escape_string(strip_tags($_POST['description']));
+		// edit description of gpx file
+		$description = db_escape_string(
+			isset($_POST['description']) ?
+				strip_tags($_POST['description']) :
+				"");
 	        $query = "UPDATE IGNORE `${cfg['db_table_prefix']}gpx_files` 
 	        	SET `description` = '$description' WHERE `id` = '$id' ;";
 	        $result = db_query($query);

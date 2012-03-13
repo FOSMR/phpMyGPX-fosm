@@ -1,7 +1,7 @@
 <?php
 /**
 * @version $Id$
-* @package phpmygpx
+* @package phpmygpx-fosm
 * @copyright Copyright (C) 2009-2011 Sebastian Klemm.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 *
@@ -120,14 +120,14 @@ $cfg['config_language']     = 'german';
 //! locale, value depends on OS (Linux, Win)
 $cfg['config_locale']		= 'de_DE.UTF-8';
 //! timezone offset to GMT [-12...12] hours
-$cfg['timezone_offset']		= 1;
+$cfg['timezone_offset']		= 0;
 
 //! default map center latitude (degrees)
-$cfg['home_latitude']		= 51.00;
+$cfg['home_latitude']		= 0.00;
 //! default map center longitude (degrees)
-$cfg['home_longitude']		= 10.00;
+$cfg['home_longitude']		= 0.00;
 //! default zoom for map home location [1...17]
-$cfg['home_zoom']			= 6;
+$cfg['home_zoom']		= 0;
 
 //! threshold for distance calculation (in kilometers)
 $cfg['dist_threshold'] 		= .5;
@@ -135,4 +135,11 @@ $cfg['dist_threshold'] 		= .5;
 $cfg['time_threshold'] 		= 600;
 //! moving average filter param for filtering altitude data
 $cfg['alt_data_filter_mva']	= 15;
+
+//! Are NearMap layers to be supported (require basic https login to work)?
+$cfg['nearmap_support']         = FALSE;
+//! NearMap user ID with which to authenticate proxy connection
+$cfg['nearmap_user']            = 'NearMap username';
+//! NearMap password with which nearmap_user may authenticate itself
+$cfg['nearmap_pwd']             = 'NearMap password';
 ?>

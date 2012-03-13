@@ -13,12 +13,26 @@ TODO:
   * _UNFORKED_UPDATE_AVAIL
   * _PROCEED_WITH_UPDATE
   * _INST_LOCALE		(Dutch/French/Spanish only)
-- Please note  there is a problem  being logged by  Apache relating to
-  the handling  of 'pwd'  and 'pwd_hash' in  the $_POST  and $_SESSION
-  arrays. As I  do not understand this code I don't  want to change it
-  yet.   Removing  code   affects  only  administrative  login/out  in
-  so-called embedded mode (makes it impossible to log out!)
-  * Suggestions still welcome!
+  * _MENU_WPT_SAVE
+  * _INST_CFG_NEARMAP_ACCESS
+  * _INST_CFG_NEARMAP_ACCESS_MAN
+  * _INST_CFG_NEARMAP_SUPPORT
+  * _INST_CFG_NEARMAP_USER
+  * _INST_CFG_NEARMAP_PWD
+
+2011/03/13  phpMyGPX 0.6.1c:
+ - missing global declarations and initialisation checks causing error
+   logging addressed (Mainly $cfg, $_POST, $_SESSION & $_COOKIE)
+   * Thank you Ross!
+ - more user interface language strings, now for waypoint handling.
+ - moved installation home default location, timezone and zoom so
+   that initial map context now obvious (no more blank map if Germany
+   not yet rendered!)
+ - added NearMap and proxy  layers, including configurable proxy login
+   details. May be turned off if not desired in installation screens.
+ - Added missing logic to apply selected icon images to marker layer.
+ - Update notifications now only appear if newer version is available.
+ - Fixed typo in URL quoting on main page.
 
 
 2011/03/11  phpMyGPX 0.6.1b:

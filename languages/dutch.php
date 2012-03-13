@@ -179,6 +179,11 @@ DEFINE('_INST_CFG_ADMIN_ACCESS','Admin-toegang');
 DEFINE('_INST_CFG_ADMIN_ACCESS_MAN','Indien u een publieke server heeft, vink dan dit vakje aan en geef een administratie-paswoord!');
 DEFINE('_INST_CFG_PUBLIC_HOST','Publieke server');
 DEFINE('_INST_CFG_ADMIN_PASSWORD','Admin-paswoord');
+DEFINE('_INST_CFG_NEARMAP_ACCESS','NearMap access');	//Untranslated!!
+DEFINE('_INST_CFG_NEARMAP_ACCESS_MAN','Do you wish to enable access to NearMap photomap layers?<br>You will need to provide the authentication details below in order to use them:');	//Untranslated!!
+DEFINE('_INST_CFG_NEARMAP_SUPPORT','Enable NearMap layers?');	//Untranslated!!
+DEFINE('_INST_CFG_NEARMAP_USER','NearMap user ID');	//Untranslated!!
+DEFINE('_INST_CFG_NEARMAP_PWD','NearMap password');	//Untranslated!!
 DEFINE('_INST_CFG_HOME_LOCATION','Startpunt');
 DEFINE('_INST_CFG_HOME_LOCATION_MAN','Kies de standaard startcoordinaten van uw kaart door de uitsnede hiernaast te verschuiven en in te zoomen.');
 
@@ -233,6 +238,7 @@ DEFINE('_MENU_TRKPT_SEARCH','Trackpoints zoeken');
 DEFINE('_MENU_WPT','Waypoints');
 DEFINE('_MENU_WPT_VIEW','Waypoints bekijken');
 DEFINE('_MENU_WPT_EDIT','Waypoint bewerken');
+DEFINE('_MENU_WPT_SAVE','save Waypoint');	//Untranslated!!
 DEFINE('_MENU_WPT_DELETE','Waypoint verwijderen');
 DEFINE('_MENU_WPT_SEARCH','Waypoints zoeken');
 DEFINE('_MENU_PHOTO','Foto');

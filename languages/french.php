@@ -179,6 +179,11 @@ DEFINE('_INST_CFG_ADMIN_ACCESS','Accès administrateur');
 DEFINE('_INST_CFG_ADMIN_ACCESS_MAN','Si l\'accès de votre serveur n\'est pas public, vous devriez cocher cette case, et définir un mot de passe pour l\'administration!');
 DEFINE('_INST_CFG_PUBLIC_HOST','Hôte avec accès public');
 DEFINE('_INST_CFG_ADMIN_PASSWORD','Mot de passe administrateur');
+DEFINE('_INST_CFG_NEARMAP_ACCESS','NearMap access');	//Untranslated!!
+DEFINE('_INST_CFG_NEARMAP_ACCESS_MAN','Do you wish to enable access to NearMap photomap layers?<br>You will need to provide the authentication details below in order to use them:');	//Untranslated!!
+DEFINE('_INST_CFG_NEARMAP_SUPPORT','Enable NearMap layers?');	//Untranslated!!
+DEFINE('_INST_CFG_NEARMAP_USER','NearMap user ID');	//Untranslated!!
+DEFINE('_INST_CFG_NEARMAP_PWD','NearMap password');	//Untranslated!!
 DEFINE('_INST_CFG_HOME_LOCATION','Lieu principal');
 DEFINE('_INST_CFG_HOME_LOCATION_MAN','Veuillez choisir le lieu principal de votre carte (zoomez puis glisser-déposez la prévisualisation sur la droite).');
 
@@ -233,6 +238,7 @@ DEFINE('_MENU_TRKPT_SEARCH','chercher dans les points de repérage');
 DEFINE('_MENU_WPT','points de cheminement');
 DEFINE('_MENU_WPT_VIEW','voir les points de cheminement');
 DEFINE('_MENU_WPT_EDIT','éditer le point de cheminement');
+DEFINE('_MENU_WPT_SAVE','save Waypoint');	//Untranslated!!
 DEFINE('_MENU_WPT_DELETE','supprimer le point de cheminement');
 DEFINE('_MENU_WPT_SEARCH','chercher dans les points de cheminement');
 DEFINE('_MENU_PHOTO','Photo');

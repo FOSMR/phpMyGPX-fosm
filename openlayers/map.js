@@ -14,8 +14,9 @@ var colorpalette = Array ('#9900ff', '#ff00ff', '#ff0099', '#ff0033', '#ff3300',
 
 function createMap(lat, lon, zoom, 
 					maxlat, maxlon, minlat, minlon, 
-					controls, 
-					gpxFile, hiking, marker, poi, poiminzoom, tilebuffer, proxy) {
+					controls,
+		                        gpxFile, hiking, marker, icon_url, poi,
+		                        nearmap_support, poiminzoom, tilebuffer, proxy) {
 	
 	//Initialise the 'map' object
 	map = new OpenLayers.Map ("map", {
@@ -77,6 +78,11 @@ function createMap(lat, lon, zoom,
 	layerAGRI = new OpenLayers.Layer.OSM.AGRI("AGRI", {buffer:tilebuffer});
 	map.addLayer(layerAGRI);
 	
+        if (nearmap_support) {
+	    layerNearMap = new OpenLayers.Layer.OSM.NearMap("NearMap", {buffer:tilebuffer});
+	    map.addLayer(layerNearMap);
+	}
+	
 	if (hiking) {
 		layerHiking = new OpenLayers.Layer.OSM.Hiking("Hiking Paths", {buffer:tilebuffer, visibility:false});
 		map.addLayer(layerHiking);
@@ -103,8 +109,12 @@ function createMap(lat, lon, zoom,
 		layerFOSMLocalProxy = new OpenLayers.Layer.OSM.FOSMLocalProxy("FOSM (local proxy)", {buffer:tilebuffer});
 		map.addLayer(layerFOSMLocalProxy);
 		
+                if (nearmap_support) {
+		    layerNearMapLocalProxy = new OpenLayers.Layer.OSM.NearMapLocalProxy("NearMap (local proxy)", {buffer:tilebuffer});
+		    map.addLayer(layerNearMapLocalProxy);
+		}
+		
 		// use proxy for base layer
-		//map.setBaseLayer(layerMapnikLocalProxy);
 		map.setBaseLayer(layerFOSMLocalProxy);
 		
 		if (hiking) {
@@ -175,7 +185,7 @@ function createMap(lat, lon, zoom,
 	if (marker) {
 		var size = new OpenLayers.Size(21,25);
 		var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-		var icon = new OpenLayers.Icon('./openlayers/img/marker.png',size,offset);
+		var icon = new OpenLayers.Icon(icon_url,size,offset);
 		layerMarkers.addMarker(new OpenLayers.Marker(map.getCenter(), icon));
 	}
 	

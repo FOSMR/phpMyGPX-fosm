@@ -359,7 +359,7 @@ function check_password($pass) {
 }
 
 function get_session_var($element) {
-	if($element) {
+	if(isset($_SESSION[$element])) {
 		return $_SESSION[$element];
 	}else {
 		return $_SESSION;

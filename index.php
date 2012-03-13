@@ -56,7 +56,7 @@ switch ($task) {
 
 function login() {
 	global $cfg;
-	if($_POST['pwd']) {
+	if(isset($_POST['pwd'])) {
 		$_SESSION['pwd_hash'] = md5(strip_tags($_POST['pwd']));
 		if(check_password($cfg['admin_password'])) {
 			HTML::message(_LOGIN_SUCCESS);
@@ -93,11 +93,14 @@ function start() {
 	echo "</td>\n<td>\n<ul>\n";
 	HTML::message('<li><a target="_blank" href="http://www.fosm.org/">FreeOSM</a>');
 	HTML::message('<li><a target="_blank" href="https://plus.google.com/u/0/109605121902034223436/posts">FOSM on Google+</a>');
-	HTML::message('<li><a target="_blank" href=http://fosm-announcements.blogspot.com/"">FOSM announcements blog</a>');
-	HTML::message('<li><a target="_blank" href=http://tianjara.net/leaflet.html"">Tianjara Leaflet Demo</a>');
-	HTML::message('<li><a target="_blank" href=http://tianjara.net/cgi-bin/fosm-deep-history/"">Tianjara Deep History</a>');
-	HTML::message('<li><a target="_blank" href=http://map.4x4falcon.com/"">4x4falcon Mapnik</a>');
+	HTML::message('<li><a target="_blank" href="http://fosm-announcements.blogspot.com/">FOSM announcements blog</a>');
+	HTML::message('<li><a target="_blank" href="http://tianjara.net/leaflet.html">Tianjara Leaflet Demo</a>');
+	HTML::message('<li><a target="_blank" href="http://tianjara.net/cgi-bin/fosm-deep-history/">Tianjara Deep History</a>');
+	HTML::message('<li><a target="_blank" href="http://map.4x4falcon.com/">4x4falcon Mapnik</a>');
 	HTML::message('<li><a target="_blank" href="http://map.4x4falcon.com/slider/">4x4falcon OSM-FOSM comparison viewer</a>');
+	if($cfg['nearmap_support']) {
+		HTML::message('<li><a target="_blank" href="https://www.nearmap.com/login">NearMap login</a>');
+	}
 	echo "</td>\n</tr>\n</table>\n";
 }
 

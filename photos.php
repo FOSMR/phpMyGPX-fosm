@@ -69,7 +69,9 @@ if($option == "search") {
 // handling of sql result limit
 if($limit) {
 	// calc new page number caused by changed result limit
-	$p = round($p * $_COOKIE['limit'] / $limit);
+	$p = round($p *
+	    (isset($_COOKIE['limit']) ? $_COOKIE['limit'] : 0 ) /
+	    $limit);
 	setcookie('limit', $limit, time() + 3600 * $cfg['pref_cookie_lifetime']);
 } elseif(isset($_COOKIE['limit']))
 	$limit = $_COOKIE['limit'];

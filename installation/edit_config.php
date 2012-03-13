@@ -121,6 +121,18 @@ if(is_readable("./config.defaults.php")) {
 		echo "</table>\n";
 		echo "</fieldset>\n";
 		
+		echo "<fieldset><legend>"._INST_CFG_NEARMAP_ACCESS."</legend>\n";
+		HTML::message(_INST_CFG_NEARMAP_ACCESS_MAN);
+		echo "<table>\n";
+		if($cfg['nearmap_support'])
+			echo "<tr><td>"._INST_CFG_NEARMAP_SUPPORT."</td><td><input type='checkbox' name='nearmap_support' value='1' checked='checked' /></td></tr>";
+		else
+			echo "<tr><td>"._INST_CFG_NEARMAP_SUPPORT."</td><td><input type='checkbox' name='nearmap_support' value='1' /></td></tr>";
+		echo "<tr><td>"._INST_CFG_NEARMAP_USER."</td><td><input type='text' name='nearmap_user' value='${cfg['nearmap_user']}' /></td></tr>";
+		echo "<tr><td>"._INST_CFG_NEARMAP_PWD."</td><td><input type='text' name='nearmap_password' value='${cfg['nearmap_pwd']}' /></td></tr>";
+		echo "</table>\n";
+		echo "</fieldset>\n";
+		
 		echo "<fieldset><legend>"._INST_CFG_HOME_LOCATION."</legend>\n";
 		echo "<table width='100%'><tr><td valign='top'>\n";
 		

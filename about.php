@@ -76,7 +76,7 @@ if($cfg['check_updates'] && function_exists('fsockopen')) {
 	// successfully connected
 	if(strpos($answer[0], "200") !== FALSE) {
 		$version = strip_tags($answer[sizeof($answer)-1]);
-		if($version == _APP_VERSION) {
+		if($version <= _APP_VERSION) {
 			HTML::message(_NO_UPDATE_AVAIL);
 		}
 		else {

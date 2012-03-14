@@ -70,7 +70,7 @@ if($cfg['check_updates'] && function_exists('fsockopen')) {
 	}
 	echo "</td>\n</tr>\n</table>\n";
 	// Now report on github repository:
-	$url = "challis.id.au/get-phpmygpx-version";
+	$url = "FOSMR.github.com/phpMyGPX-fosm/get-phpmygpx-version";
 	$answer = fetchUrlWithoutHanging($url, 5, 0);
 	#print_r($answer);
 	// successfully connected

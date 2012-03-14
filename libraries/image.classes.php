@@ -20,10 +20,10 @@ class ImageFile {
 	function ImageFile() {
 		$info = @gd_info();
 		if($info) {
-			if($info["JPG Support"])	$this->JPGsupport = TRUE;
-			if($info["PNG Support"])	$this->PNGsupport = TRUE;
-			if($info["GIF Read Support"])	$this->GIFreadsupport = TRUE;
-			if($info["GIF Create Support"])	$this->GIFcreatesupport = TRUE;
+			if(isset($info["JPG Support"]))	$this->JPGsupport = TRUE;
+			if(isset($info["PNG Support"]))	$this->PNGsupport = TRUE;
+			if(isset($info["GIF Read Support"]))	$this->GIFreadsupport = TRUE;
+			if(isset($info["GIF Create Support"]))	$this->GIFcreatesupport = TRUE;
 			return TRUE;
 		}
 		else
@@ -83,7 +83,7 @@ class ImageFile {
 			// check IFD0 section in EXIF header
 			if($exif) {
 				// get orientation and set rotation angle 
-				$orientation = $exif['IFD0']['Orientation'];
+				$orientation = isset($exif['IFD0']['Orientation']) ? $exif['IFD0']['Orientation'] : 0;
 				switch($orientation) {
 					case '8':
 						$angle = 90;
@@ -126,7 +126,7 @@ class ImageFile {
 		// check GPS section in EXIF header
 		if($exif) {
 			// parse GPS data
-			$alt = intval($this->exif_get_float($exif['GPS']['GPSAltitude']));
+			$alt = intval($this->exif_get_float(isset($exif['GPS']['GPSAltitude']) ? $exif['GPS']['GPSAltitude'] : 0));
 			$lat = $this->exif_get_latitude($exif);
 			$lon = $this->exif_get_longitude($exif);
 			$ts = $this->exif_get_timestamp($exif);

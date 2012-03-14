@@ -20,6 +20,11 @@ TODO:
   * _INST_CFG_NEARMAP_USER
   * _INST_CFG_NEARMAP_PWD
 
+2011/03/14  phpMyGPX 0.6.1d:
+ - removed challis.id.au dependency.
+ - some photo handling fixes: original code seems incomplete, so
+   these fixes will need further work.
+
 2011/03/13  phpMyGPX 0.6.1c:
  - missing global declarations and initialisation checks causing error
    logging addressed (Mainly $cfg, $_POST, $_SESSION & $_COOKIE)

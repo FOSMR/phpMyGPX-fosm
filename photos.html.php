@@ -71,7 +71,7 @@ class HTML_photos {
                 if($row) {
                     echo "<td>";
                     echo "<a href='?task=details&id=${row['id']}'>";
-                    echo "<img src='".$cfg['photo_thumbs_dir'].$cfg['thumbs_prefix']. $row['file']."' />";
+                    echo "<img src='".$cfg['photo_thumbs_dir'].$cfg['photo_thumbs_prefix']. $row['file']."' />";
                     echo "</a><br/>";
                     echo "<a title='${row['file']}' href='?task=details&id=${row['id']}'>".
                     	trim_str($row['file'], 16)."</a></td>";
